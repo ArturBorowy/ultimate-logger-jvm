@@ -16,7 +16,6 @@ android {
     }
 
     defaultConfig {
-        //TODO `PLACEHOLDER NAME`: REPLACE WITH YOUR APP'S ID
         applicationId "pl.arturborowy"
         minSdkVersion 19
         targetSdkVersion 28
