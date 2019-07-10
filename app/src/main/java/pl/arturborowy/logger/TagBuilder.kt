@@ -3,6 +3,10 @@ package pl.arturborowy.logger
 class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceiver,
                  private val defaultTagSettings: TagSettings) {
 
+    companion object {
+        private const val PACKAGE_SEPARATOR = '.'
+    }
+
     fun build(withFileNme: Boolean?,
               withClassName: Boolean?,
               withMethodName: Boolean?,
@@ -25,17 +29,22 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
                       withClassName: Boolean,
                       withMethodName: Boolean,
                       withLineNumber: Boolean): String {
-        val fileName = getTagElement(withFileNme, "${stackTraceElement.fileName} ")
-        val className = getTagElement(withClassName, stackTraceElement.className)
+        val fileName = getTagElement(withFileNme, stackTraceElement.fileName)
+
+        val lineNumberStr = getTagElement(withLineNumber,
+                stackTraceElement.lineNumber.toString())
+
+        val className = getTagElement(withClassName,
+                removePackageFromClassName(stackTraceElement.className))
 
         val methodName = getTagElement(withMethodName,
                 ".${stackTraceElement.methodName}()")
 
-        val lineNumberStr = getTagElement(withLineNumber,
-                " Line: ${stackTraceElement.lineNumber}")
-
-        return "$fileName$className$methodName$lineNumberStr"
+        return "($fileName:$lineNumberStr)$className$methodName"
     }
+
+    private fun removePackageFromClassName(classWithPackage: String) =
+            classWithPackage.substring(classWithPackage.indexOfLast { it == PACKAGE_SEPARATOR } + 1)
 
     private fun getTagElement(isElementIncluded: Boolean, element: String) =
             if (isElementIncluded) {
