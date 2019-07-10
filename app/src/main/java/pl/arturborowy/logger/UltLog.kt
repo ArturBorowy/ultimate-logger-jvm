@@ -27,12 +27,7 @@ object UltLog : KoinComponent {
 
     fun e(throwable: Throwable?,
           extraMessage: String? = null) {
-        Log.e(tagBuilder.build(withFileNme = true,
-                withClassName = false,
-                withMethodName = false,
-                withLineNumber = false),
-                extraMessage,
-                throwable)
+        Log.e(tagBuilder.buildForThrowable(), extraMessage, throwable)
     }
 
     fun <AnyT> e(anything: AnyT?,

@@ -23,6 +23,12 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
                     withLineNumber ?: defaultTagSettings.shouldLogLineNr)
         }
     }
+    
+    fun buildForThrowable() =
+            build(withFileNme = true,
+                    withClassName = false,
+                    withMethodName = false,
+                    withLineNumber = false)
 
     private fun build(stackTraceElement: StackTraceElement,
                       withFileNme: Boolean,
