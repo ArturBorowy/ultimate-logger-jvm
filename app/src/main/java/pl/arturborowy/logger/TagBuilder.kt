@@ -32,9 +32,7 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
                       withFileNameAndLineNr: Boolean,
                       withClassName: Boolean,
                       withMethodName: Boolean): String {
-        val fileName = getTagElement(withFileNameAndLineNr, stackTraceElement.fileName)
-
-        val lineNumberStr = stackTraceElement.lineNumber.toString()
+        val fileNameWithLineNr = getTagElement(withFileNameAndLineNr, "(${stackTraceElement.fileName}:${stackTraceElement.lineNumber})")
 
         val className = getTagElement(withClassName,
                 removePackageFromClassName(stackTraceElement.className))
@@ -42,7 +40,13 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
         val methodName = getTagElement(withMethodName,
                 ".${stackTraceElement.methodName}()")
 
-        return "($fileName:$lineNumberStr)$className$methodName"
+        val output = "$fileNameWithLineNr $className$methodName"
+
+        return if (output == " ") {
+            " "
+        } else {
+            output.removePrefix(" ").removeSuffix(" ")
+        }
     }
 
     private fun removePackageFromClassName(classWithPackage: String) =
