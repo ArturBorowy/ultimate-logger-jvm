@@ -73,7 +73,16 @@ class TagBuilderTest {
     }
 
     @Test // expected tag case "(FileName.kt:89) ClassName.methodName()"
-    fun `build with all arguments true returns tag in correct case`() {
+    fun `build with all arguments true returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = true,
+                    withClassName = true,
+                    withMethodName = true,
+                    expectedTag = "($givenFileName:$givenLineNr) $givenClassName.$givenMethodName()")
+
+    private fun assertBuiltTag(withFileNameAndLineNr: Boolean,
+                               withClassName: Boolean,
+                               withMethodName: Boolean,
+                               expectedTag: String) {
         val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
 
         val spyDefaultTagSettings: TagSettings = mock()
@@ -84,161 +93,59 @@ class TagBuilderTest {
                 .willReturn(StackTraceElement(givenClassName, givenMethodName,
                         givenFileName, givenLineNr))
 
-        val expectedTag = "($givenFileName:$givenLineNr) $givenClassName.$givenMethodName()"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = true,
-                withClassName = true,
-                withMethodName = true)
+        val actualTag = tagBuilder.build(withFileNameAndLineNr, withClassName, withMethodName)
 
         Assert.assertEquals(expectedTag, actualTag)
     }
 
     @Test
-    fun `build with all arguments false returns " "`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = " "
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = false,
-                withClassName = false,
-                withMethodName = false)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build with all arguments false returns " "`() =
+            assertBuiltTag(withFileNameAndLineNr = false,
+                    withClassName = false,
+                    withMethodName = false,
+                    expectedTag = " ")
 
     @Test // expected tag case "(FileName.kt:89)"
-    fun `build(true, false, false) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = "($givenFileName:$givenLineNr)"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = true,
-                withClassName = false,
-                withMethodName = false)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(true, false, false) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = true,
+                    withClassName = false,
+                    withMethodName = false,
+                    expectedTag = "($givenFileName:$givenLineNr)")
 
     @Test // expected tag case "(FileName.kt:89) ClassName"
-    fun `build(true, true, false) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = "($givenFileName:$givenLineNr) $givenClassName"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = true,
-                withClassName = true,
-                withMethodName = false)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(true, true, false) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = true,
+                    withClassName = true,
+                    withMethodName = false,
+                    expectedTag = "($givenFileName:$givenLineNr) $givenClassName")
 
     @Test // expected tag case "ClassName"
-    fun `build(false, true, false) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = givenClassName
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = false,
-                withClassName = true,
-                withMethodName = false)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(false, true, false) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = false,
+                    withClassName = true,
+                    withMethodName = false,
+                    expectedTag = givenClassName)
 
     @Test // expected tag case ".methodName()"
-    fun `build(false, false, true) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = ".$givenMethodName()"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = false,
-                withClassName = false,
-                withMethodName = true)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(false, false, true) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = false,
+                    withClassName = false,
+                    withMethodName = true,
+                    expectedTag = ".$givenMethodName()")
 
     @Test // expected tag case "(FileName.kt:89) .methodName()"
-    fun `build(true, false, true) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = "($givenFileName:$givenLineNr) .$givenMethodName()"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = true,
-                withClassName = false,
-                withMethodName = true)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(true, false, true) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = true,
+                    withClassName = false,
+                    withMethodName = true,
+                    expectedTag = "($givenFileName:$givenLineNr) .$givenMethodName()")
 
     @Test // expected tag case "ClassName.methodName()"
-    fun `build(false, true, true) returns tag in correct case`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
-
-        val spyDefaultTagSettings: TagSettings = mock()
-
-        val tagBuilder = TagBuilder(mockStackTraceElementReceiver, spyDefaultTagSettings)
-
-        given(mockStackTraceElementReceiver.getData())
-                .willReturn(StackTraceElement(givenClassName, givenMethodName,
-                        givenFileName, givenLineNr))
-
-        val expectedTag = "$givenClassName.$givenMethodName()"
-
-        val actualTag = tagBuilder.build(withFileNameAndLineNr = false,
-                withClassName = true,
-                withMethodName = true)
-
-        Assert.assertEquals(expectedTag, actualTag)
-    }
+    fun `build(false, true, true) returns tag in correct case`() =
+            assertBuiltTag(withFileNameAndLineNr = false,
+                    withClassName = true,
+                    withMethodName = true,
+                    expectedTag = "$givenClassName.$givenMethodName()")
 
     @Test
     fun `buildForThrowable calls build on self with correct arguments`() {
