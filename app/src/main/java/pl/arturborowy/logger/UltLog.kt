@@ -1,9 +1,9 @@
 package pl.arturborowy.logger
 
-import android.util.Log
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
+import pl.arturborowy.logger.output.MultiPriorityLogger
 
 object UltLog : KoinComponent {
 
@@ -14,21 +14,18 @@ object UltLog : KoinComponent {
     private val tagBuilder: TagBuilder
             by inject(parameters = { parametersOf(defaultTagSettings) })
 
+    private val logger: MultiPriorityLogger by inject()
+
     fun e(msg: String? = DEFAULT_LOG_MESSAGE,
           withFileNme: Boolean? = null,
           withClassName: Boolean? = null,
           withMethodName: Boolean? = null,
-          withLineNumber: Boolean? = null) {
-        Log.e(tagBuilder.build(withFileNme,
-                withClassName,
-                withMethodName,
-                withLineNumber), msg)
-    }
+          withLineNumber: Boolean? = null) =
+            logger.e(tagBuilder.build(withFileNme, withClassName, withMethodName, withLineNumber), msg)
 
     fun e(throwable: Throwable?,
-          extraMessage: String? = null) {
-        Log.e(tagBuilder.buildForThrowable(), extraMessage, throwable)
-    }
+          extraMessage: String? = null) =
+            logger.e(tagBuilder.buildForThrowable(), extraMessage, throwable)
 
     fun <AnyT> e(anything: AnyT?,
                  withFileNme: Boolean? = null,
