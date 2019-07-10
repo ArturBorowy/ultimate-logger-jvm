@@ -7,10 +7,9 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
         private const val PACKAGE_SEPARATOR = '.'
     }
 
-    fun build(withFileNme: Boolean?,
+    fun build(withFileNameAndLineNr: Boolean?,
               withClassName: Boolean?,
-              withMethodName: Boolean?,
-              withLineNumber: Boolean?): String {
+              withMethodName: Boolean?): String {
         val stackTraceElement =
                 javaClass.canonicalName?.let { stackTraceElementReceiver.getData() }
 
@@ -18,28 +17,24 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
             ""
         } else {
             build(stackTraceElement,
-                    withFileNme ?: defaultTagSettings.shouldLogFileName,
+                    withFileNameAndLineNr ?: defaultTagSettings.shouldLogFileNameAndLineNr,
                     withClassName ?: defaultTagSettings.shouldLogClassName,
-                    withMethodName ?: defaultTagSettings.shouldLogMethodName,
-                    withLineNumber ?: defaultTagSettings.shouldLogLineNr)
+                    withMethodName ?: defaultTagSettings.shouldLogMethodName)
         }
     }
 
     fun buildForThrowable() =
-            build(withFileNme = true,
+            build(withFileNameAndLineNr = true,
                     withClassName = false,
-                    withMethodName = false,
-                    withLineNumber = false)
+                    withMethodName = false)
 
     private fun build(stackTraceElement: StackTraceElement,
-                      withFileNme: Boolean,
+                      withFileNameAndLineNr: Boolean,
                       withClassName: Boolean,
-                      withMethodName: Boolean,
-                      withLineNumber: Boolean): String {
-        val fileName = getTagElement(withFileNme, stackTraceElement.fileName)
+                      withMethodName: Boolean): String {
+        val fileName = getTagElement(withFileNameAndLineNr, stackTraceElement.fileName)
 
-        val lineNumberStr = getTagElement(withLineNumber,
-                stackTraceElement.lineNumber.toString())
+        val lineNumberStr = stackTraceElement.lineNumber.toString()
 
         val className = getTagElement(withClassName,
                 removePackageFromClassName(stackTraceElement.className))

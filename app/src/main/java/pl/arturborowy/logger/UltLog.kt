@@ -17,20 +17,17 @@ object UltLog : KoinComponent {
     private val logger: MultiPriorityLogger by inject()
 
     fun e(msg: String? = DEFAULT_LOG_MESSAGE,
-          withFileNme: Boolean? = null,
+          withFileNameAndLineNr: Boolean? = null,
           withClassName: Boolean? = null,
-          withMethodName: Boolean? = null,
-          withLineNumber: Boolean? = null) =
-            logger.e(tagBuilder.build(withFileNme, withClassName, withMethodName, withLineNumber), msg)
+          withMethodName: Boolean? = null) =
+            logger.e(tagBuilder.build(withFileNameAndLineNr, withClassName, withMethodName), msg)
 
-    fun e(throwable: Throwable?,
-          extraMessage: String? = null) =
+    fun e(throwable: Throwable?, extraMessage: String? = null) =
             logger.e(tagBuilder.buildForThrowable(), extraMessage, throwable)
 
     fun <AnyT> e(anything: AnyT?,
-                 withFileNme: Boolean? = null,
+                 withFileNameAndLineNr: Boolean? = null,
                  withClassName: Boolean? = null,
-                 withMethodName: Boolean? = null,
-                 withLineNumber: Boolean? = null) =
-            e(anything.toString(), withFileNme, withClassName, withMethodName, withLineNumber)
+                 withMethodName: Boolean? = null) =
+            e(anything.toString(), withFileNameAndLineNr, withClassName, withMethodName)
 }

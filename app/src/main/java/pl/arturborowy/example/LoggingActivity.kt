@@ -11,8 +11,10 @@ class LoggingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        UltLogInitializer.initDebug(this, true, TagSettings(shouldLogFileName = true,
-                shouldLogClassName = true, shouldLogMethodName = true, shouldLogLineNr = true))
+        UltLogInitializer.initDebug(this, true, TagSettings(
+                shouldLogFileNameAndLineNr = true,
+                shouldLogClassName = true,
+                shouldLogMethodName = true))
 
         UltLog.e("12345")
     }
