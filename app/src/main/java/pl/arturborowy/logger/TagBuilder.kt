@@ -11,7 +11,8 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
               withClassName: Boolean?,
               withMethodName: Boolean?,
               withLineNumber: Boolean?): String {
-        val stackTraceElement = stackTraceElementReceiver.getData(javaClass.canonicalName!!)
+        val stackTraceElement =
+                javaClass.canonicalName?.let { stackTraceElementReceiver.getData() }
 
         return if (stackTraceElement == null) {
             ""
@@ -23,7 +24,7 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
                     withLineNumber ?: defaultTagSettings.shouldLogLineNr)
         }
     }
-    
+
     fun buildForThrowable() =
             build(withFileNme = true,
                     withClassName = false,
