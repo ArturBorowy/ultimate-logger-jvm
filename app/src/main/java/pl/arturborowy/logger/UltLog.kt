@@ -1,20 +1,17 @@
 package pl.arturborowy.logger
 
-import org.koin.core.KoinComponent
-import org.koin.core.inject
-import org.koin.core.parameter.parametersOf
+import pl.arturborowy.logger.di.LazyServiceLocator
 import pl.arturborowy.logger.output.MultiPriorityLogger
 
-object UltLog : KoinComponent {
+object UltLog {
 
     private const val DEFAULT_LOG_MESSAGE = "Empty log"
 
     lateinit var defaultTagSettings: TagSettings
 
-    private val tagBuilder: TagBuilder
-            by inject(parameters = { parametersOf(defaultTagSettings) })
+    private val tagBuilder: TagBuilder by LazyServiceLocator.getDependency { defaultTagSettings }
 
-    private val logger: MultiPriorityLogger by inject()
+    private val logger: MultiPriorityLogger by LazyServiceLocator.getDependency()
 
     fun e(msg: String? = DEFAULT_LOG_MESSAGE,
           withFileNameAndLineNr: Boolean? = null,

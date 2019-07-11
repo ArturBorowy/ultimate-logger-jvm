@@ -7,7 +7,13 @@ import pl.arturborowy.logger.di.util.named
 
 object LazyServiceLocator : KoinComponent {
 
-    inline fun <reified DependencyT, ParametersT> getDependency(qualifierString: String? = null,
-                                                                parameters: ParametersT): Lazy<DependencyT> =
-            inject(named(qualifierString)) { parametersOf(parameters) }
+    inline fun <reified DependencyT> getDependency(qualifierString: String?) =
+            inject<DependencyT>(named(qualifierString))
+
+    inline fun <reified DependencyT> getDependency(crossinline parametersGetter: () -> Any?) =
+            inject<DependencyT> { parametersOf(parametersGetter()) }
+
+    inline fun <reified DependencyT> getDependency(qualifierString: String? = null,
+                                                   crossinline parametersGetter: () -> Any? = { null }) =
+            inject<DependencyT>(named(qualifierString)) { parametersOf(parametersGetter()) }
 }
