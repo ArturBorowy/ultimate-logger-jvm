@@ -5,9 +5,9 @@ import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
 import pl.arturborowy.logger.di.util.named
 
-object DependencyRetriever : KoinComponent {
+object LazyServiceLocator : KoinComponent {
 
-    inline fun <reified DependencyT, ParametersT> retrieve(qualifierString: String? = null,
-                                                           parameters: ParametersT): Lazy<DependencyT> =
+    inline fun <reified DependencyT, ParametersT> getDependency(qualifierString: String? = null,
+                                                                parameters: ParametersT): Lazy<DependencyT> =
             inject(named(qualifierString)) { parametersOf(parameters) }
 }
