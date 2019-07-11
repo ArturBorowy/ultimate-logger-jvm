@@ -11,7 +11,7 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceive
               withClassName: Boolean?,
               withMethodName: Boolean?): String {
         val stackTraceElement =
-                javaClass.canonicalName?.let { stackTraceElementReceiver.getData() }
+                javaClass.canonicalName?.let { stackTraceElementReceiver.getData(it) }
 
         return if (stackTraceElement == null) {
             ""
