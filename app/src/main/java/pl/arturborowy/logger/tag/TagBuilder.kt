@@ -1,4 +1,4 @@
-package pl.arturborowy.logger
+package pl.arturborowy.logger.tag
 
 class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceiver,
                  private val defaultTagSettings: TagSettings) {

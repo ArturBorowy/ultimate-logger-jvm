@@ -6,9 +6,9 @@ import com.nhaarman.mockitokotlin2.spy
 import org.junit.Assert
 import org.junit.Test
 import org.mockito.Mockito
-import pl.arturborowy.logger.StackTraceElementReceiver
-import pl.arturborowy.logger.TagBuilder
-import pl.arturborowy.logger.TagSettings
+import pl.arturborowy.logger.tag.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.TagBuilder
+import pl.arturborowy.logger.tag.TagSettings
 
 class TagBuilderTest {
 

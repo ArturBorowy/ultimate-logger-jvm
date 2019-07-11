@@ -2,6 +2,8 @@ package pl.arturborowy.logger
 
 import pl.arturborowy.logger.di.LazyServiceLocator
 import pl.arturborowy.logger.output.MultiPriorityLogger
+import pl.arturborowy.logger.tag.TagBuilder
+import pl.arturborowy.logger.tag.TagSettings
 
 object UltLog {
 

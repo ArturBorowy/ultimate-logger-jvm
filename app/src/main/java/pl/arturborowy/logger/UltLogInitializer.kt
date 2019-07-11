@@ -2,6 +2,7 @@ package pl.arturborowy.logger
 
 import android.content.Context
 import pl.arturborowy.logger.di.ServiceLocatorInitializer
+import pl.arturborowy.logger.tag.TagSettings
 
 object UltLogInitializer {
 

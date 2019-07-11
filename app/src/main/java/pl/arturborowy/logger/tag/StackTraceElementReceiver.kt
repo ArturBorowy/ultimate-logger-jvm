@@ -1,4 +1,6 @@
-package pl.arturborowy.logger
+package pl.arturborowy.logger.tag
+
+import pl.arturborowy.logger.UltLog
 
 class StackTraceElementReceiver {
 

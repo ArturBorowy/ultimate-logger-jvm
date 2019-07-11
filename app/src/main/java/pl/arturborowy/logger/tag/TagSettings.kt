@@ -1,4 +1,4 @@
-package pl.arturborowy.logger
+package pl.arturborowy.logger.tag
 
 data class TagSettings(val shouldLogFileNameAndLineNr: Boolean,
                        val shouldLogClassName: Boolean,
