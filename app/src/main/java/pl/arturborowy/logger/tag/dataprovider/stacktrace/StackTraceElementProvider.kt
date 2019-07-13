@@ -1,4 +1,4 @@
-package pl.arturborowy.logger.tag.dataprovider
+package pl.arturborowy.logger.tag.dataprovider.stacktrace
 
 interface StackTraceElementProvider {
 

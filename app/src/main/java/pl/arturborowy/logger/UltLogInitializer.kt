@@ -6,8 +6,8 @@ import pl.arturborowy.logger.di.LazyServiceLocator
 import pl.arturborowy.logger.di.ServiceLocatorInitializer
 import pl.arturborowy.logger.tag.TagBuilder
 import pl.arturborowy.logger.tag.TagSettings
-import pl.arturborowy.logger.tag.dataprovider.ClassIgnorableStackTraceElementProvider
-import pl.arturborowy.logger.tag.dataprovider.StackTraceTagDataProvider
+import pl.arturborowy.logger.tag.dataprovider.stacktrace.ClassIgnorableStackTraceElementProvider
+import pl.arturborowy.logger.tag.dataprovider.stacktrace.StackTraceTagDataProvider
 
 object UltLogInitializer {
 
