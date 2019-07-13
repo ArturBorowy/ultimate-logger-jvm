@@ -10,10 +10,13 @@ object LazyServiceLocator : KoinComponent {
     inline fun <reified DependencyT> getDependency(qualifierString: String?) =
             inject<DependencyT>(named(qualifierString))
 
-    inline fun <reified DependencyT> getDependency(crossinline parametersGetter: () -> Any?) =
-            inject<DependencyT> { parametersOf(parametersGetter()) }
+    inline fun <reified DependencyT> getDependency(vararg parametersGetter: () -> Any?) =
+            inject<DependencyT> { parametersGetter.toKoinParameters() }
 
     inline fun <reified DependencyT> getDependency(qualifierString: String? = null,
-                                                   crossinline parametersGetter: () -> Any? = { null }) =
-            inject<DependencyT>(named(qualifierString)) { parametersOf(parametersGetter()) }
+                                                   vararg parametersGetter: () -> Any? = arrayOf()) =
+            inject<DependencyT>(named(qualifierString)) { parametersGetter.toKoinParameters() }
+
+    fun Array<out () -> Any?>.toKoinParameters() =
+            parametersOf(*map { it() }.toTypedArray())
 }
