@@ -1,9 +1,10 @@
 package pl.arturborowy.logger.tag
 
 import pl.arturborowy.logger.data.TagSettingsRepository
-import pl.arturborowy.logger.tag.dataprovider.StackTraceTagDataProvider
+import pl.arturborowy.logger.tag.dataprovider.TagData
+import pl.arturborowy.logger.tag.dataprovider.TagDataProvider
 
-class TagBuilder(private val stackTraceElementReceiver: StackTraceTagDataProvider,
+class TagBuilder(private val tagDataProvider: TagDataProvider,
                  private val tagSettingsRepository: TagSettingsRepository) {
 
     companion object {
@@ -15,12 +16,12 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceTagDataProvide
     fun build(withFileNameAndLineNr: Boolean?,
               withClassName: Boolean?,
               withMethodName: Boolean?): String {
-        val stackTraceElement = stackTraceElementReceiver.getData()
+        val tagData = tagDataProvider.getTagData()
 
-        return if (stackTraceElement == null) {
+        return if (tagData == null) {
             ""
         } else {
-            build(stackTraceElement,
+            build(tagData,
                     withFileNameAndLineNr ?: defaultTagSettings.shouldLogFileNameAndLineNr,
                     withClassName ?: defaultTagSettings.shouldLogClassName,
                     withMethodName ?: defaultTagSettings.shouldLogMethodName)
@@ -32,17 +33,18 @@ class TagBuilder(private val stackTraceElementReceiver: StackTraceTagDataProvide
                     withClassName = false,
                     withMethodName = false)
 
-    private fun build(stackTraceElement: StackTraceElement,
+    private fun build(tagData: TagData,
                       withFileNameAndLineNr: Boolean,
                       withClassName: Boolean,
                       withMethodName: Boolean): String {
-        val fileNameWithLineNr = getTagElement(withFileNameAndLineNr, "(${stackTraceElement.fileName}:${stackTraceElement.lineNumber})")
+        val fileNameWithLineNr = getTagElement(withFileNameAndLineNr,
+                "(${tagData.fileName}:${tagData.lineNumber})")
 
         val className = getTagElement(withClassName,
-                removePackageFromClassName(stackTraceElement.className))
+                removePackageFromClassName(tagData.className))
 
         val methodName = getTagElement(withMethodName,
-                ".${stackTraceElement.methodName}()")
+                ".${tagData.methodName}()")
 
         val output = "$fileNameWithLineNr $className$methodName"
 

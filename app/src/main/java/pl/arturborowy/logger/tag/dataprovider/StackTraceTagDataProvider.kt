@@ -1,23 +1,10 @@
 package pl.arturborowy.logger.tag.dataprovider
 
-import pl.arturborowy.logger.data.TagSettingsRepository
+class StackTraceTagDataProvider(private val stackTraceElementProvider: StackTraceElementProvider,
+                                private val tagDataConverter: TagDataConverter) : TagDataProvider {
 
-class StackTraceTagDataProvider(private val tagSettingsRepository: TagSettingsRepository) {
-
-    private val classesToIgnore =
-            tagSettingsRepository.defaultTagSettings.classesToIgnore
-
-    private val namesOfClassesToIgnore = classesToIgnore.map { it.qualifiedName }
-
-    fun getData(): StackTraceElement? {
-        val stElements = Thread.currentThread().stackTrace
-        for (i in 1 until stElements.size) {
-            val ste = stElements[i]
-            if (namesOfClassesToIgnore.contains(ste.className).not()
-                    && ste.className.indexOf("java.lang.Thread") != 0) {
-                return ste
-            }
-        }
-        return null
+    override fun getTagData(): TagData? {
+        val stackTraceElement = stackTraceElementProvider.getStackTraceElement()
+        return stackTraceElement?.let { tagDataConverter.fromStackTraceElement(it) }
     }
 }
