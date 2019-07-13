@@ -1,11 +1,15 @@
 package pl.arturborowy.logger.tag
 
+import pl.arturborowy.logger.data.TagSettingsRepository
+
 class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceiver,
-                 private val defaultTagSettings: TagSettings) {
+                 private val tagSettingsRepository: TagSettingsRepository) {
 
     companion object {
         private const val PACKAGE_SEPARATOR = '.'
     }
+
+    private val defaultTagSettings = tagSettingsRepository.defaultTagSettings
 
     fun build(withFileNameAndLineNr: Boolean?,
               withClassName: Boolean?,
