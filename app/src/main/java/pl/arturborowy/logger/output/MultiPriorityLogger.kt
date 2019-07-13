@@ -1,6 +1,6 @@
 package pl.arturborowy.logger.output
 
-internal interface MultiPriorityLogger {
+interface MultiPriorityLogger {
 
     fun v(tag: String?, msg: String? = null, throwable: Throwable? = null)
 

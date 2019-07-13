@@ -24,6 +24,8 @@ object UltLogInitializer {
 
         val tagSettingsRepository: TagSettingsRepository by LazyServiceLocator.getDependency()
         tagSettingsRepository.defaultTagSettings = defaultTagSettings
+
+        UltLog.init(isDebug)
     }
 
     fun destroy() = ServiceLocatorInitializer.destroy()
