@@ -2,7 +2,7 @@ package pl.arturborowy.logger.tag.dataprovider
 
 import pl.arturborowy.logger.data.TagSettingsRepository
 
-class StackTraceElementReceiver(private val tagSettingsRepository: TagSettingsRepository) {
+class StackTraceTagDataProvider(private val tagSettingsRepository: TagSettingsRepository) {
 
     private val classesToIgnore =
             tagSettingsRepository.defaultTagSettings.classesToIgnore

@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.spy
 import org.junit.Assert
 import org.junit.Test
 import org.mockito.Mockito
-import pl.arturborowy.logger.tag.dataprovider.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.dataprovider.StackTraceTagDataProvider
 import pl.arturborowy.logger.tag.TagBuilder
 import pl.arturborowy.logger.tag.TagSettings
 
@@ -21,7 +21,7 @@ class TagBuilderTest {
 
     @Test
     fun `build returns empty string if stackTraceElement is null`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
+        val mockStackTraceElementReceiver: StackTraceTagDataProvider = mock()
         val mockDefaultTagSettings: TagSettings = mock()
 
         val tagBuilder = TagBuilder(mockStackTraceElementReceiver, mockDefaultTagSettings)
@@ -38,7 +38,7 @@ class TagBuilderTest {
 
     @Test
     fun `build uses defaultTagSettings if arguments are null`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
+        val mockStackTraceElementReceiver: StackTraceTagDataProvider = mock()
 
         val givenShouldLogFileName = true
         val givenShouldLogFileNameAndLineNr = true
@@ -83,7 +83,7 @@ class TagBuilderTest {
                                withClassName: Boolean,
                                withMethodName: Boolean,
                                expectedTag: String) {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
+        val mockStackTraceElementReceiver: StackTraceTagDataProvider = mock()
 
         val spyDefaultTagSettings: TagSettings = mock()
 
@@ -149,7 +149,7 @@ class TagBuilderTest {
 
     @Test
     fun `buildForThrowable calls build on self with correct arguments`() {
-        val mockStackTraceElementReceiver: StackTraceElementReceiver = mock()
+        val mockStackTraceElementReceiver: StackTraceTagDataProvider = mock()
         val mockDefaultTagSettings: TagSettings = mock()
 
         val tagBuilder = TagBuilder(mockStackTraceElementReceiver, mockDefaultTagSettings)

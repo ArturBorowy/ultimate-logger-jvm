@@ -1,9 +1,9 @@
 package pl.arturborowy.logger.tag
 
 import pl.arturborowy.logger.data.TagSettingsRepository
-import pl.arturborowy.logger.tag.dataprovider.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.dataprovider.StackTraceTagDataProvider
 
-class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceiver,
+class TagBuilder(private val stackTraceElementReceiver: StackTraceTagDataProvider,
                  private val tagSettingsRepository: TagSettingsRepository) {
 
     companion object {

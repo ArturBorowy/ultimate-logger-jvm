@@ -7,12 +7,12 @@ import pl.arturborowy.logger.di.util.named
 import pl.arturborowy.logger.output.AndroidLog
 import pl.arturborowy.logger.output.DebugMultiPriorityLogger
 import pl.arturborowy.logger.output.MultiPriorityLogger
-import pl.arturborowy.logger.tag.dataprovider.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.dataprovider.StackTraceTagDataProvider
 import pl.arturborowy.logger.tag.TagBuilder
 
 internal var applicationModule = module {
     single { TagBuilder(get(), get()) }
-    single { StackTraceElementReceiver(get()) }
+    single { StackTraceTagDataProvider(get()) }
 
     single<MultiPriorityLogger>(named(LoggerTag.DEFAULT)) { AndroidLog() }
     single<MultiPriorityLogger>(named(LoggerTag.DEBUG))
