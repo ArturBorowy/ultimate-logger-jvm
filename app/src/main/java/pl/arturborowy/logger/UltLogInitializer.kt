@@ -5,6 +5,7 @@ import pl.arturborowy.logger.data.TagSettingsRepository
 import pl.arturborowy.logger.di.LazyServiceLocator
 import pl.arturborowy.logger.di.ServiceLocatorInitializer
 import pl.arturborowy.logger.tag.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.TagBuilder
 import pl.arturborowy.logger.tag.TagSettings
 
 object UltLogInitializer {
@@ -17,7 +18,8 @@ object UltLogInitializer {
 
         val defaultClassesToIgnore = listOf(
                 UltLog::class,
-                StackTraceElementReceiver::class
+                StackTraceElementReceiver::class,
+                TagBuilder::class
         )
 
         defaultTagSettings.classesToIgnore.addAll(defaultClassesToIgnore)
