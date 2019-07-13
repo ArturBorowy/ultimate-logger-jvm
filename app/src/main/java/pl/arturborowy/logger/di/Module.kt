@@ -1,5 +1,6 @@
 package pl.arturborowy.logger.di
 
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 import pl.arturborowy.logger.output.AndroidLog
 import pl.arturborowy.logger.output.MultiPriorityLogger
@@ -10,8 +11,8 @@ import kotlin.reflect.KClass
 
 internal var applicationModule = module {
     single { (defaultTagSettings: TagSettings, classesToIgnore: Collection<KClass<*>>) ->
-        TagBuilder(get(), defaultTagSettings, classesToIgnore)
+        TagBuilder(get(parameters = { parametersOf(classesToIgnore) }), defaultTagSettings)
     }
-    single { StackTraceElementReceiver() }
+    single { (classesToIgnore: Collection<KClass<*>>) -> StackTraceElementReceiver(classesToIgnore) }
     single<MultiPriorityLogger> { AndroidLog() }
 }

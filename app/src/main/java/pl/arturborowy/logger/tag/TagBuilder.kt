@@ -1,10 +1,7 @@
 package pl.arturborowy.logger.tag
 
-import kotlin.reflect.KClass
-
 class TagBuilder(private val stackTraceElementReceiver: StackTraceElementReceiver,
-                 private val defaultTagSettings: TagSettings,
-                 private val classesToIgnore : Collection<KClass<*>>) {
+                 private val defaultTagSettings: TagSettings) {
 
     companion object {
         private const val PACKAGE_SEPARATOR = '.'

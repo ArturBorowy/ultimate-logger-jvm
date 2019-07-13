@@ -1,8 +1,9 @@
 package pl.arturborowy.logger.tag
 
 import pl.arturborowy.logger.UltLog
+import kotlin.reflect.KClass
 
-class StackTraceElementReceiver {
+class StackTraceElementReceiver(private val classesToIgnore: Collection<KClass<*>>) {
 
     fun getData(vararg classNamesToIgnore: String): StackTraceElement? {
         val stElements = Thread.currentThread().stackTrace
