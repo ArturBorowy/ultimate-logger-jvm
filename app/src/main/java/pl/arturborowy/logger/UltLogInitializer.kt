@@ -4,7 +4,7 @@ import android.content.Context
 import pl.arturborowy.logger.data.TagSettingsRepository
 import pl.arturborowy.logger.di.LazyServiceLocator
 import pl.arturborowy.logger.di.ServiceLocatorInitializer
-import pl.arturborowy.logger.tag.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.dataprovider.StackTraceElementReceiver
 import pl.arturborowy.logger.tag.TagBuilder
 import pl.arturborowy.logger.tag.TagSettings
 

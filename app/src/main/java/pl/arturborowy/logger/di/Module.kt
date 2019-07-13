@@ -7,7 +7,7 @@ import pl.arturborowy.logger.di.util.named
 import pl.arturborowy.logger.output.AndroidLog
 import pl.arturborowy.logger.output.DebugMultiPriorityLogger
 import pl.arturborowy.logger.output.MultiPriorityLogger
-import pl.arturborowy.logger.tag.StackTraceElementReceiver
+import pl.arturborowy.logger.tag.dataprovider.StackTraceElementReceiver
 import pl.arturborowy.logger.tag.TagBuilder
 
 internal var applicationModule = module {

@@ -1,4 +1,4 @@
-package pl.arturborowy.logger.tag
+package pl.arturborowy.logger.tag.dataprovider
 
 import pl.arturborowy.logger.data.TagSettingsRepository
 
