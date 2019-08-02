@@ -4,6 +4,7 @@ import com.nhaarman.mockitokotlin2.anyOrNull
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
+import org.junit.Assert
 import org.junit.Test
 import org.mockito.Mockito
 import pl.arturborowy.logger.tag.builder.TagDataTagBuilder
@@ -52,5 +53,22 @@ class StringTagProviderWithTagDataTest {
                         eq(givenWithFileNameAndLineNr),
                         eq(givenWithClassName),
                         eq(givenWithMethodName))
+    }
+
+    @Test
+    fun `build() returns tag from tagDataTagBuilder build()`() {
+        val givenTag = "eeeeee"
+
+        given(mockTagDataTagBuilder.build(anyOrNull(),
+                anyOrNull(),
+                anyOrNull(),
+                anyOrNull()))
+                .willReturn(givenTag)
+
+        val actualTag = stringTagProviderWithTagData.provide(null,
+                null,
+                null)
+
+        Assert.assertEquals(givenTag, actualTag)
     }
 }
