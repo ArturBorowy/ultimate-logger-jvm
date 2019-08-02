@@ -1,23 +1,21 @@
-package pl.arturborowy.logger.tag
+package pl.arturborowy.logger.tag.builder
 
 import pl.arturborowy.logger.data.TagSettingsRepository
 import pl.arturborowy.logger.tag.dataprovider.TagData
-import pl.arturborowy.logger.tag.dataprovider.TagDataProvider
 
-class TagBuilder(private val tagDataProvider: TagDataProvider,
-                 private val tagSettingsRepository: TagSettingsRepository) {
+class TagDataTagBuilderWithDefaultSettings(
+        private val defaultTagSettingsRepository: TagSettingsRepository) : TagDataTagBuilder {
 
     companion object {
         private const val PACKAGE_SEPARATOR = '.'
     }
 
-    private val defaultTagSettings = tagSettingsRepository.defaultTagSettings
+    private val defaultTagSettings = defaultTagSettingsRepository.defaultTagSettings
 
-    fun build(withFileNameAndLineNr: Boolean?,
-              withClassName: Boolean?,
-              withMethodName: Boolean?): String {
-        val tagData = tagDataProvider.getTagData()
-
+    override fun build(tagData: TagData?,
+                       withFileNameAndLineNr: Boolean?,
+                       withClassName: Boolean?,
+                       withMethodName: Boolean?): String {
         return if (tagData == null) {
             ""
         } else {
@@ -27,11 +25,6 @@ class TagBuilder(private val tagDataProvider: TagDataProvider,
                     withMethodName ?: defaultTagSettings.shouldLogMethodName)
         }
     }
-
-    fun buildForThrowable() =
-            build(withFileNameAndLineNr = true,
-                    withClassName = false,
-                    withMethodName = false)
 
     private fun build(tagData: TagData,
                       withFileNameAndLineNr: Boolean,
