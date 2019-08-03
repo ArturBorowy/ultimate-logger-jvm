@@ -16,7 +16,6 @@ android {
     }
 
     defaultConfig {
-        //TODO `PLACEHOLDER NAME`: REPLACE WITH YOUR APP'S ID
         applicationId "pl.arturborowy"
         minSdkVersion 19
         targetSdkVersion 28
@@ -99,6 +98,7 @@ configurations.all {
 apply from: 'dependencies.gradle'
 
 dependencies {
+    final KOIN_VERSION = '2.0.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
@@ -110,6 +110,11 @@ dependencies {
 
     debugImplementation debugLibs
     releaseImplementation releaseLibs
+
+    api "org.koin:koin-android:$KOIN_VERSION"
+    api "org.koin:koin-android-scope:$KOIN_VERSION"
+    api "org.koin:koin-android-viewmodel:$KOIN_VERSION"
+    api "org.koin:koin-android-ext:$KOIN_VERSION"
 
     implementation(glideOkhttp) {
         exclude group: 'glide-parent'
