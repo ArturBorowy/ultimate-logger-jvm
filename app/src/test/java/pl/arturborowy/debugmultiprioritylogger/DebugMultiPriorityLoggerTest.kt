@@ -6,7 +6,6 @@ import org.mockito.verification.VerificationMode
 import pl.arturborowy.logger.output.DebugMultiPriorityLogger
 import pl.arturborowy.logger.output.MultiPriorityLogger
 
-
 abstract class DebugMultiPriorityLoggerTest(isDebug: Boolean) {
 
     protected val mockLogger: MultiPriorityLogger = mock()

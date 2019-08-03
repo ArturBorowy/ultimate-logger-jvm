@@ -4,7 +4,6 @@ import org.junit.Test
 import org.mockito.Mockito
 import pl.arturborowy.logger.output.MultiPriorityLogger
 
-
 class DebugMultiPriorityLoggerIsDebugTrueTest : DebugMultiPriorityLoggerTest(true) {
 
     @Test
