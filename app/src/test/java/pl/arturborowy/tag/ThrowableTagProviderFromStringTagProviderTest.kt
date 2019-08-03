@@ -11,7 +11,7 @@ class ThrowableTagProviderFromStringTagProviderTest {
 
     private val mockStringTagProvider: StringTagProvider = mock()
 
-    private val stringTagProviderWithTagData =
+    private val throwableTagProviderFromStringTagProvider =
             ThrowableTagProviderFromStringTagProvider(mockStringTagProvider)
 
     @Test
@@ -24,6 +24,6 @@ class ThrowableTagProviderFromStringTagProviderTest {
                         withMethodName = false))
                 .willReturn(givenTag)
 
-        Assert.assertEquals(givenTag, stringTagProviderWithTagData.provide())
+        Assert.assertEquals(givenTag, throwableTagProviderFromStringTagProvider.provide())
     }
 }
