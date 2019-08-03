@@ -44,7 +44,7 @@ class TagDataTagBuilderWithDefaultSettings(
         return if (output == " ") {
             " "
         } else {
-            output.removePrefix(" ").removeSuffix(" ")
+            output.trim(' ')
         }
     }
 
