@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "pl.arturborowy"
+        applicationId "pl.arturborowy.ultimatelogger.example"
         minSdkVersion 19
         targetSdkVersion 28
         testInstrumentationRunner "${applicationId}.runner.RxAndroidJUnitRunner"
@@ -95,45 +95,15 @@ configurations.all {
     }
 }
 
-apply from: 'dependencies.gradle'
-
 dependencies {
-    final KOIN_VERSION = '2.0.0'
+    implementation project(path: ':ultimatelogger')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation androidx
-    implementation firebase
-    implementation networkLibs
-    implementation rxJavaLibs
-    implementation otherLibs
-
-    debugImplementation debugLibs
-    releaseImplementation releaseLibs
-
-    api "org.koin:koin-android:$KOIN_VERSION"
-    api "org.koin:koin-android-scope:$KOIN_VERSION"
-    api "org.koin:koin-android-viewmodel:$KOIN_VERSION"
-    api "org.koin:koin-android-ext:$KOIN_VERSION"
-
-    implementation(glideOkhttp) {
-        exclude group: 'glide-parent'
-    }
-
-    debugImplementation(sherlock) {
-        transitive = true
-    }
-
-    // APT dependencies
-    kapt annotationProcessorLibs
-    kaptTest daggerCompiler
-    kaptAndroidTest daggerCompiler
-
-    testImplementation unitTestLibs
-    androidTestImplementation androidTestsLibs
-
-    testImplementation unitTestLibs
-    androidTestImplementation androidTestsLibs
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
 // Log out test results to console

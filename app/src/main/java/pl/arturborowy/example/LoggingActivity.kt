@@ -2,9 +2,9 @@ package pl.arturborowy.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import pl.arturborowy.logger.UltLog
-import pl.arturborowy.logger.UltLogInitializer
-import pl.arturborowy.logger.tag.TagSettings
+import pl.arturborowy.ultimatelogger.UltLog
+import pl.arturborowy.ultimatelogger.UltLogInitializer
+import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 class LoggingActivity : AppCompatActivity() {
 
