@@ -1,1 +1,1 @@
-include ':app', ':ultimatelogger', ':androidloggeroutput'
+include ':app', ':ultimatelogger', ':androidloggeroutput', ':ultimateloggermp'
