@@ -13,24 +13,24 @@ class TagDataTagBuilderWithDefaultSettings(
     private val defaultTagSettings = defaultTagSettingsRepository.defaultTagSettings
 
     override fun build(tagData: TagData?,
-                       withFileNameAndLineNr: Boolean?,
+                       withFileNameAndLineNum: Boolean?,
                        withClassName: Boolean?,
                        withMethodName: Boolean?): String {
         return if (tagData == null) {
             ""
         } else {
             build(tagData,
-                    withFileNameAndLineNr ?: defaultTagSettings.shouldLogFileNameAndLineNr,
+                    withFileNameAndLineNum ?: defaultTagSettings.shouldLogFileNameAndLineNum,
                     withClassName ?: defaultTagSettings.shouldLogClassName,
                     withMethodName ?: defaultTagSettings.shouldLogMethodName)
         }
     }
 
     private fun build(tagData: TagData,
-                      withFileNameAndLineNr: Boolean,
+                      withFileNameAndLineNum: Boolean,
                       withClassName: Boolean,
                       withMethodName: Boolean): String {
-        val fileNameWithLineNr = getTagElement(withFileNameAndLineNr,
+        val fileNameWithLineNum = getTagElement(withFileNameAndLineNum,
                 "(${tagData.fileName}:${tagData.lineNumber})")
 
         val className = getTagElement(withClassName,
@@ -39,7 +39,7 @@ class TagDataTagBuilderWithDefaultSettings(
         val methodName = getTagElement(withMethodName,
                 ".${tagData.methodName}()")
 
-        val output = "$fileNameWithLineNr $className$methodName"
+        val output = "$fileNameWithLineNum $className$methodName"
 
         return if (output == " ") {
             " "

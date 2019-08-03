@@ -17,7 +17,7 @@ class TagSettingsRepositoryTest {
 
     @Test
     fun `defaultTagSettings getter returns value provided by setter`() {
-        val givenTagSettings = TagSettings(shouldLogFileNameAndLineNr = true,
+        val givenTagSettings = TagSettings(shouldLogFileNameAndLineNum = true,
                 shouldLogClassName = true, shouldLogMethodName = true)
 
         tagSettingsRepository.defaultTagSettings = givenTagSettings

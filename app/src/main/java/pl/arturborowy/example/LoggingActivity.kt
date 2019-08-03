@@ -12,7 +12,7 @@ class LoggingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         UltLogInitializer.initDebug(this, true, TagSettings(
-                shouldLogFileNameAndLineNr = true,
+                shouldLogFileNameAndLineNum = true,
                 shouldLogClassName = true,
                 shouldLogMethodName = true))
 

@@ -6,7 +6,7 @@ class ThrowableTagProviderFromStringTagProvider(private val stringTagProvider: S
         ThrowableTagProvider {
 
     override fun provide() =
-            stringTagProvider.provide(withFileNameAndLineNr = true,
+            stringTagProvider.provide(withFileNameAndLineNum = true,
                     withClassName = false,
                     withMethodName = false)
 }

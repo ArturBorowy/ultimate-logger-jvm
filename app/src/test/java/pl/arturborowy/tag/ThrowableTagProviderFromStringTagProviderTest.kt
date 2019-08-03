@@ -19,7 +19,7 @@ class ThrowableTagProviderFromStringTagProviderTest {
         val givenTag = "okpwro23[ik[2"
 
         given(mockStringTagProvider
-                .provide(withFileNameAndLineNr = true,
+                .provide(withFileNameAndLineNum = true,
                         withClassName = false,
                         withMethodName = false))
                 .willReturn(givenTag)

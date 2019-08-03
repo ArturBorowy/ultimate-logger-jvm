@@ -5,7 +5,7 @@ import pl.arturborowy.logger.tag.dataprovider.TagData
 interface TagDataTagBuilder {
 
     fun build(tagData: TagData?,
-              withFileNameAndLineNr: Boolean?,
+              withFileNameAndLineNum: Boolean?,
               withClassName: Boolean?,
               withMethodName: Boolean?): String
 }

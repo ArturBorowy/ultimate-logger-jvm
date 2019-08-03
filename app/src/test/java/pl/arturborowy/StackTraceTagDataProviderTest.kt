@@ -14,7 +14,7 @@ class StackTraceTagDataProviderTest {
     private val givenClassName = "givenClassName"
     private val givenFileName = "givenFileName"
     private val givenMethodName = "givenMethodName"
-    private val givenLineNr = 12
+    private val givenLineNum = 12
 
     private val mockStackTraceElementProvider: StackTraceElementProvider = mock()
     private val mockTagDataConverter: TagDataConverter = mock()
@@ -33,7 +33,7 @@ class StackTraceTagDataProviderTest {
     @Test
     fun `getTagData returns tagData converted from stackTraceElement`() {
         val givenStackTraceElement = StackTraceElement(givenClassName, givenMethodName,
-                givenFileName, givenLineNr)
+                givenFileName, givenLineNum)
 
         given(mockStackTraceElementProvider.getStackTraceElement())
                 .willReturn(givenStackTraceElement)

@@ -24,11 +24,11 @@ object UltLog {
     private var isDebugInternal: Boolean? = null
 
     fun e(msg: String? = DEFAULT_LOG_MESSAGE,
-          withFileNameAndLineNr: Boolean? = null,
+          withFileNameAndLineNum: Boolean? = null,
           withClassName: Boolean? = null,
           withMethodName: Boolean? = null) =
             logger.e(
-                    stringTagProvider.provide(withFileNameAndLineNr,
+                    stringTagProvider.provide(withFileNameAndLineNum,
                             withClassName,
                             withMethodName),
                     msg)
@@ -37,10 +37,10 @@ object UltLog {
             logger.e(throwableTagProvider.provide(), extraMessage, throwable)
 
     fun <AnyT> e(anything: AnyT?,
-                 withFileNameAndLineNr: Boolean? = null,
+                 withFileNameAndLineNum: Boolean? = null,
                  withClassName: Boolean? = null,
                  withMethodName: Boolean? = null) =
-            e(anything.toString(), withFileNameAndLineNr, withClassName, withMethodName)
+            e(anything.toString(), withFileNameAndLineNum, withClassName, withMethodName)
 
     fun init(isDebug: Boolean) {
         this.isDebugInternal = isDebug
