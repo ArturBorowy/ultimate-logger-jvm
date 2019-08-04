@@ -29,6 +29,8 @@ object UltLogInitializer {
                 UltLog::class,
                 StackTraceTagDataProvider::class,
                 StringTagProviderWithTagData::class,
+                DelegatedUltLog::class,
+                UltimateLoggerLogMethods::class,
                 ThrowableTagProviderFromStringTagProvider::class,
                 ClassIgnorableStackTraceElementProvider::class
         )
