@@ -2,7 +2,7 @@ package pl.arturborowy.jvmloggeroutput
 
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-class SytemOutPrintLogger : MultiPriorityLogger {
+internal class SytemOutPrintLogger : MultiPriorityLogger {
 
     override fun v(tag: String?, msg: String?, throwable: Throwable?) {
         logOut("VERBOSE", tag, msg, throwable)
