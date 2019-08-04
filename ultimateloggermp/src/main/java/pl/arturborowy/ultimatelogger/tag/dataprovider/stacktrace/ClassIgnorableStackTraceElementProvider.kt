@@ -15,6 +15,7 @@ internal class ClassIgnorableStackTraceElementProvider(tagSettingsRepository: Ta
         for (i in 1 until stElements.size) {
             val ste = stElements[i]
             if (namesOfClassesToIgnore.contains(ste.className).not()
+                    && namesOfClassesToIgnore.map { "$it\$DefaultImpls" }.contains(ste.className).not()
                     && ste.className.indexOf("java.lang.Thread") != 0) {
                 return ste
             }
