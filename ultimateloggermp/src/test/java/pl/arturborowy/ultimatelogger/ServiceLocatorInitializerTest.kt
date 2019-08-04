@@ -8,7 +8,7 @@ import org.koin.core.error.KoinAppAlreadyStartedException
 import pl.arturborowy.ultimatelogger.di.ServiceLocatorInitializer
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-class ServiceLocatorInitializerTest {
+internal class ServiceLocatorInitializerTest {
 
     private val mockMultiPriorityLogger: MultiPriorityLogger = mock()
 

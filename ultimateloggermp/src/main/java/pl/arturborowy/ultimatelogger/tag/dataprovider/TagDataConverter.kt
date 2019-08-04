@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger.tag.dataprovider
 
-class TagDataConverter {
+internal class TagDataConverter {
 
     fun fromStackTraceElement(stackTraceElement: StackTraceElement) =
             TagData(stackTraceElement.fileName,

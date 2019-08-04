@@ -5,7 +5,7 @@ import org.junit.Test
 import org.koin.core.qualifier.StringQualifier
 import pl.arturborowy.ultimatelogger.di.util.named
 
-class KoinFunctionsTest {
+internal class KoinFunctionsTest {
 
     @Test
     fun `named(String?) behaves as koin's named(String) if given name is not null`() {

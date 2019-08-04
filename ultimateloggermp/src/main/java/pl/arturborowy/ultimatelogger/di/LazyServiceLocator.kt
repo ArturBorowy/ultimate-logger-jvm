@@ -5,7 +5,7 @@ import org.koin.core.inject
 import pl.arturborowy.ultimatelogger.di.util.named
 import pl.arturborowy.ultimatelogger.di.util.toKoinParameters
 
-object LazyServiceLocator : KoinComponent {
+internal object LazyServiceLocator : KoinComponent {
 
     inline fun <reified DependencyT> getDependency(qualifierString: String?) =
             getDependency<DependencyT>(qualifierString, {})

@@ -2,7 +2,7 @@ package pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace
 
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 
-class ClassIgnorableStackTraceElementProvider(tagSettingsRepository: TagSettingsRepository) :
+internal class ClassIgnorableStackTraceElementProvider(tagSettingsRepository: TagSettingsRepository) :
         StackTraceElementProvider {
 
     private val classesToIgnore =

@@ -7,7 +7,7 @@ import org.junit.Test
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProvider
 import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProviderFromStringTagProvider
 
-class ThrowableTagProviderFromStringTagProviderTest {
+internal class ThrowableTagProviderFromStringTagProviderTest {
 
     private val mockStringTagProvider: StringTagProvider = mock()
 

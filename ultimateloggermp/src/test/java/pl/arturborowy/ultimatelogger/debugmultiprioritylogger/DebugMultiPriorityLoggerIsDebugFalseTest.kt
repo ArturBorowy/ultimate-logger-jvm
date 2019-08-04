@@ -4,7 +4,8 @@ import org.junit.Test
 import org.mockito.Mockito
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-class DebugMultiPriorityLoggerIsDebugFalseTest : DebugMultiPriorityLoggerTest(false) {
+internal class DebugMultiPriorityLoggerIsDebugFalseTest :
+        DebugMultiPriorityLoggerTest(false) {
 
     @Test
     fun `v() doesn't call v() on givenLogger`() {

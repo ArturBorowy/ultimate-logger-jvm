@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger.tag.dataprovider
 
-interface TagDataProvider {
+internal interface TagDataProvider {
 
     fun getTagData(): TagData?
 }

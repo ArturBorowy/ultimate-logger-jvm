@@ -42,7 +42,7 @@ object UltLog {
                  withMethodName: Boolean? = null) =
             e(anything.toString(), withFileNameAndLineNum, withClassName, withMethodName)
 
-    fun init(isDebug: Boolean) {
+    internal fun init(isDebug: Boolean) {
         isDebugInternal = isDebug
     }
 }

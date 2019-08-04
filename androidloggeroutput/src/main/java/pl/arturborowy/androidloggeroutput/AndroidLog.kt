@@ -3,7 +3,7 @@ package pl.arturborowy.androidloggeroutput
 import android.util.Log
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-class AndroidLog : MultiPriorityLogger {
+internal class AndroidLog : MultiPriorityLogger {
 
     override fun v(tag: String?, msg: String?, throwable: Throwable?) {
         Log.v(tag, msg, throwable)

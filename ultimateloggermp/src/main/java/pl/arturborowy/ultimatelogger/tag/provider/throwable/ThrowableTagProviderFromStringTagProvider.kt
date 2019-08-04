@@ -2,7 +2,8 @@ package pl.arturborowy.ultimatelogger.tag.provider.throwable
 
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProvider
 
-class ThrowableTagProviderFromStringTagProvider(private val stringTagProvider: StringTagProvider) :
+internal class ThrowableTagProviderFromStringTagProvider(
+        private val stringTagProvider: StringTagProvider) :
         ThrowableTagProvider {
 
     override fun provide() =

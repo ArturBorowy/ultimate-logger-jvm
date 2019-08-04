@@ -3,7 +3,7 @@ package pl.arturborowy.ultimatelogger.tag.builder
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagData
 
-class TagDataTagBuilderWithDefaultSettings(
+internal class TagDataTagBuilderWithDefaultSettings(
         private val defaultTagSettingsRepository: TagSettingsRepository) : TagDataTagBuilder {
 
     companion object {
