@@ -8,6 +8,7 @@ object ServiceLocatorInitializer {
 
     fun init(logOutput: MultiPriorityLogger) {
         startKoin {
+            printLogger()
             modules(applicationModule(logOutput))
         }
     }
