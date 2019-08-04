@@ -7,7 +7,7 @@ object JvmUltLogInitializer {
 
     fun init(isDebug: Boolean,
              defaultTagSettings: TagSettings) {
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, SytemOutPrintLogger())
+        UltLogInitializer.initDebug(isDebug, defaultTagSettings, SystemOutPrintLogger())
     }
 
     fun destroy() = UltLogInitializer.destroy()
