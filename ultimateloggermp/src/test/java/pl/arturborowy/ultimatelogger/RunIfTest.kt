@@ -5,7 +5,7 @@ import org.junit.Test
 import org.mockito.Mockito
 import pl.arturborowy.ultimatelogger.util.runIf
 
-class RunIfTest {
+internal class RunIfTest {
 
     private val dummyObjectWithMethod: DummyClassWithMethod = mock()
 

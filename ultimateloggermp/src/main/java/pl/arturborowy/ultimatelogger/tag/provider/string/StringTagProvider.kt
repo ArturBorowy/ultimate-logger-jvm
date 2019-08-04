@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger.tag.provider.string
 
-interface StringTagProvider {
+internal interface StringTagProvider {
 
     fun provide(withFileNameAndLineNum: Boolean?,
                 withClassName: Boolean?,

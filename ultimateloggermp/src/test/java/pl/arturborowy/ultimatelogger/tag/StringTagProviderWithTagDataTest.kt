@@ -12,7 +12,7 @@ import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataProvider
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProviderWithTagData
 import pl.arturborowy.ultimatelogger.util.TestData
 
-class StringTagProviderWithTagDataTest {
+internal class StringTagProviderWithTagDataTest {
 
     private val mockTagDataProvider: TagDataProvider = mock()
     private val mockTagDataTagBuilder: TagDataTagBuilder = mock()

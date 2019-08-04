@@ -2,7 +2,7 @@ package pl.arturborowy.ultimatelogger.tag.builder
 
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagData
 
-interface TagDataTagBuilder {
+internal interface TagDataTagBuilder {
 
     fun build(tagData: TagData?,
               withFileNameAndLineNum: Boolean?,

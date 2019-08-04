@@ -2,8 +2,8 @@ package pl.arturborowy.ultimatelogger.output
 
 import pl.arturborowy.ultimatelogger.util.runIf
 
-class DebugMultiPriorityLogger(private val logger: MultiPriorityLogger,
-                               private val isDebug: Boolean) : MultiPriorityLogger {
+internal class DebugMultiPriorityLogger(private val logger: MultiPriorityLogger,
+                                        private val isDebug: Boolean) : MultiPriorityLogger {
 
     override fun v(tag: String?, msg: String?, throwable: Throwable?) =
             runIfDebug { logger.v(tag, msg, throwable) }

@@ -2,7 +2,7 @@ package pl.arturborowy.ultimatelogger
 
 import org.junit.Test
 
-class UltLogTest {
+internal class UltLogTest {
 
     @Test
     fun `e(String, ) throws UltLogNotInitializedException if init wasn't called before`() {

@@ -9,7 +9,7 @@ import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataConverter
 import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceElementProvider
 import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceTagDataProvider
 
-class StackTraceTagDataProviderTest {
+internal class StackTraceTagDataProviderTest {
 
     private val givenClassName = "givenClassName"
     private val givenFileName = "givenFileName"

@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger.di.tags
 
-object LoggerTag {
+internal object LoggerTag {
     private val TAG_PREFIX = this::class.qualifiedName
 
     val DEBUG = "$TAG_PREFIX debug"

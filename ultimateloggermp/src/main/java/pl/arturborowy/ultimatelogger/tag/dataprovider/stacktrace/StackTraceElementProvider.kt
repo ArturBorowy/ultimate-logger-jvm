@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace
 
-interface StackTraceElementProvider {
+internal interface StackTraceElementProvider {
 
     fun getStackTraceElement(): StackTraceElement?
 }

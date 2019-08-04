@@ -6,7 +6,7 @@ import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.exception.UltLogNotInitializedException
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
-class TagSettingsRepositoryTest {
+internal class TagSettingsRepositoryTest {
 
     private val tagSettingsRepository = TagSettingsRepository()
 

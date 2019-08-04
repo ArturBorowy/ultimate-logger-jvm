@@ -3,7 +3,7 @@ package pl.arturborowy.ultimatelogger.tag.provider.string
 import pl.arturborowy.ultimatelogger.tag.builder.TagDataTagBuilder
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataProvider
 
-class StringTagProviderWithTagData(
+internal class StringTagProviderWithTagData(
         private val tagDataProvider: TagDataProvider,
         private val tagDataTagBuilder: TagDataTagBuilder)
     : StringTagProvider {

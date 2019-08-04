@@ -5,7 +5,7 @@ import org.junit.Test
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagData
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataConverter
 
-class TagDataConverterTest {
+internal class TagDataConverterTest {
 
     private val givenClassName = "givenClassName"
     private val givenFileName = "givenFileName"
