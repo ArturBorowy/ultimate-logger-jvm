@@ -96,11 +96,13 @@ configurations.all {
 }
 
 dependencies {
-    implementation project(path: ':ultimatelogger')
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(path: ':androidloggeroutput')
+
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

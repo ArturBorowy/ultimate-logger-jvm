@@ -2,8 +2,8 @@ package pl.arturborowy.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import pl.arturborowy.androidloggeroutput.AndroidUltLogInitializer
 import pl.arturborowy.ultimatelogger.UltLog
-import pl.arturborowy.ultimatelogger.UltLogInitializer
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 class LoggingActivity : AppCompatActivity() {
@@ -11,7 +11,7 @@ class LoggingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        UltLogInitializer.initDebug(this, true, TagSettings(
+        AndroidUltLogInitializer.init(this, true, TagSettings(
                 shouldLogFileNameAndLineNum = true,
                 shouldLogClassName = true,
                 shouldLogMethodName = true))
