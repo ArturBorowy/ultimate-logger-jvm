@@ -11,7 +11,7 @@ class LoggingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AndroidUltLogInitializer.init(this, true, TagSettings(
+        AndroidUltLogInitializer.init( true, TagSettings(
                 shouldLogFileNameAndLineNum = true,
                 shouldLogClassName = true,
                 shouldLogMethodName = true))
