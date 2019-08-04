@@ -1,13 +1,13 @@
-package pl.arturborowy.androidloggeroutput
+package pl.arturborowy.jvmloggeroutput
 
 import pl.arturborowy.ultimatelogger.UltLogInitializer
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
-object AndroidUltLogInitializer {
+object JvmUltLogInitializer {
 
     fun init(isDebug: Boolean,
              defaultTagSettings: TagSettings) {
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, AndroidLog())
+        UltLogInitializer.initDebug(isDebug, defaultTagSettings, SytemOutPrintLogger())
     }
 
     fun destroy() = UltLogInitializer.destroy()
