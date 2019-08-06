@@ -8,7 +8,8 @@ object JvmUltLogInitializer {
 
     fun init(isDebug: Boolean,
              defaultTagSettings: TagSettings) {
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, JvmLog, SystemOutPrintLogger())
+        val jvmLog = lazy { JvmLog }
+        UltLogInitializer.initDebug(isDebug, defaultTagSettings, jvmLog, SystemOutPrintLogger())
     }
 
     fun destroy() = UltLogInitializer.destroy()
