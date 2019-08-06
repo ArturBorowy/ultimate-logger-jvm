@@ -5,7 +5,7 @@ import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 /**
  * Singleton facade for @UltLogDelegationContract.
  */
-object UltLog : UltLogDelegationContract {
+abstract class UltLog : UltLogDelegationContract {
 
     private val ultLogDelegationContract: UltLogDelegationContract
             by LazyServiceLocator.getDependency()

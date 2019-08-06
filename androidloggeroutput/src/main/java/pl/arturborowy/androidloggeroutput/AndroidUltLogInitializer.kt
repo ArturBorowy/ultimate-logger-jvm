@@ -7,7 +7,7 @@ object AndroidUltLogInitializer {
 
     fun init(isDebug: Boolean,
              defaultTagSettings: TagSettings) {
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, AndroidLog())
+        UltLogInitializer.initDebug(isDebug, defaultTagSettings, ALog, AndroidLog())
     }
 
     fun destroy() = UltLogInitializer.destroy()

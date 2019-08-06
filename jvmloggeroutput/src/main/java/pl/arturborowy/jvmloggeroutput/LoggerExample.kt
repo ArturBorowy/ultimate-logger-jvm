@@ -1,6 +1,6 @@
 package pl.arturborowy.jvmloggeroutput
 
-import pl.arturborowy.ultimatelogger.UltLog
+import pl.arturborowy.ultimatelogger.di.JvmLog
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 internal fun main(args: Array<String>) {
@@ -8,6 +8,6 @@ internal fun main(args: Array<String>) {
             TagSettings(shouldLogFileNameAndLineNum = true,
                     shouldLogClassName = true,
                     shouldLogMethodName = true))
-    UltLog.e("EBEBEBEBBE")
-    UltLog.e(Exception())
+    JvmLog.e("EBEBEBEBBE")
+    JvmLog.e(Exception())
 }

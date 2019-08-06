@@ -14,10 +14,11 @@ object UltLogInitializer {
 
     fun initDebug(isDebug: Boolean,
                   defaultTagSettings: TagSettings,
+                  ultLog: UltLog,
                   logOutput: MultiPriorityLogger) {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
-        UltLog.init(isDebug)
+        ultLog.init(isDebug)
     }
 
     private fun initServiceLocator(logOutput: MultiPriorityLogger) {
