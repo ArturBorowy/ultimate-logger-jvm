@@ -1,5 +1,5 @@
 package pl.arturborowy.androidloggeroutput
 
-import pl.arturborowy.ultimatelogger.UltLog
+import pl.arturborowy.ultimatelogger.DelegatedUltLog
 
-object ALog : UltLog()
+object ALog : DelegatedUltLog()

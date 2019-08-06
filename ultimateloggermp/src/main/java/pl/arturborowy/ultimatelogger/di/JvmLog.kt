@@ -1,5 +1,5 @@
 package pl.arturborowy.ultimatelogger.di
 
-import pl.arturborowy.ultimatelogger.UltLog
+import pl.arturborowy.ultimatelogger.DelegatedUltLog
 
-object JvmLog : UltLog()
+object JvmLog : DelegatedUltLog()

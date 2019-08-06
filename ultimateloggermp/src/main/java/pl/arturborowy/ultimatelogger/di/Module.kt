@@ -1,8 +1,6 @@
 package pl.arturborowy.ultimatelogger.di
 
 import org.koin.dsl.module
-import pl.arturborowy.ultimatelogger.DelegatedUltLog
-import pl.arturborowy.ultimatelogger.UltLogDelegationContract
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.di.tags.LoggerTag
 import pl.arturborowy.ultimatelogger.di.util.named
@@ -36,6 +34,4 @@ internal fun applicationModule(logOutput: MultiPriorityLogger) = module {
     single(named(LoggerTag.DEFAULT)) { logOutput }
     single<SwitchableMultiPriorityLogger>
     { DebugMultiPriorityLogger(get(named(LoggerTag.DEFAULT)), false) }
-
-    single<UltLogDelegationContract> { DelegatedUltLog(get(), get(), get()) }
 }

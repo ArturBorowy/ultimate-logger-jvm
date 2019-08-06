@@ -1,13 +1,15 @@
 package pl.arturborowy.ultimatelogger
 
+import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 import pl.arturborowy.ultimatelogger.output.SwitchableMultiPriorityLogger
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProvider
 import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProvider
 
-internal class DelegatedUltLog(private val logger: SwitchableMultiPriorityLogger,
-                               private val stringTagProvider: StringTagProvider,
-                               private val throwableTagProvider: ThrowableTagProvider)
-    : UltLogDelegationContract {
+abstract class DelegatedUltLog : UltLogDelegationContract {
+
+    private val logger: SwitchableMultiPriorityLogger by LazyServiceLocator.getDependency()
+    private val stringTagProvider: StringTagProvider by LazyServiceLocator.getDependency()
+    private val throwableTagProvider: ThrowableTagProvider by LazyServiceLocator.getDependency()
 
     override fun init(shouldLog: Boolean) {
         logger.isLoggingOn = shouldLog

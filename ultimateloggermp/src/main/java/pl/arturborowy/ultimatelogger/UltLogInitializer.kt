@@ -14,7 +14,7 @@ object UltLogInitializer {
 
     fun initDebug(isDebug: Boolean,
                   defaultTagSettings: TagSettings,
-                  ultLog: Lazy<UltLog>,
+                  ultLog: Lazy<DelegatedUltLog>,
                   logOutput: MultiPriorityLogger) {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
@@ -27,7 +27,6 @@ object UltLogInitializer {
 
     private fun setDefaultTagSettings(defaultTagSettings: TagSettings) {
         val defaultClassesToIgnore = listOf(
-                UltLog::class,
                 StackTraceTagDataProvider::class,
                 StringTagProviderWithTagData::class,
                 DelegatedUltLog::class,
