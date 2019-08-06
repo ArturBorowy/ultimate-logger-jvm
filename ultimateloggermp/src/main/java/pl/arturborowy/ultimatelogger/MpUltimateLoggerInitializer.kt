@@ -10,15 +10,15 @@ import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceTagDa
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProviderWithTagData
 import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProviderFromStringTagProvider
 
-object UltLogInitializer {
+object MpUltimateLoggerInitializer {
 
-    fun initDebug(isDebug: Boolean,
-                  defaultTagSettings: TagSettings,
-                  ultLog: Lazy<DelegatedUltLog>,
-                  logOutput: MultiPriorityLogger) {
+    fun init(shouldLog: Boolean,
+             defaultTagSettings: TagSettings,
+             ultimateLogger: Lazy<SwitchableMultiPriorityUltimateLogger>,
+             logOutput: MultiPriorityLogger) {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
-        ultLog.value.init(isDebug)
+        ultimateLogger.value.init(shouldLog)
     }
 
     private fun initServiceLocator(logOutput: MultiPriorityLogger) {
@@ -29,8 +29,8 @@ object UltLogInitializer {
         val defaultClassesToIgnore = listOf(
                 StackTraceTagDataProvider::class,
                 StringTagProviderWithTagData::class,
-                DelegatedUltLog::class,
-                UltimateLoggerLogMethods::class,
+                SwitchableMultiPriorityUltimateLogger::class,
+                UltimateLogger::class,
                 ThrowableTagProviderFromStringTagProvider::class,
                 ClassIgnorableStackTraceElementProvider::class
         )

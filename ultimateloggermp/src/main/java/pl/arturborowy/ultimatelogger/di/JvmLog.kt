@@ -1,5 +1,5 @@
 package pl.arturborowy.ultimatelogger.di
 
-import pl.arturborowy.ultimatelogger.DelegatedUltLog
+import pl.arturborowy.ultimatelogger.SwitchableMultiPriorityUltimateLogger
 
-object JvmLog : DelegatedUltLog()
+object JvmLog : SwitchableMultiPriorityUltimateLogger()

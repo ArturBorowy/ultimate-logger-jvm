@@ -1,15 +1,17 @@
 package pl.arturborowy.androidloggeroutput
 
-import pl.arturborowy.ultimatelogger.UltLogInitializer
+import pl.arturborowy.ultimatelogger.MpUltimateLoggerInitializer
+import pl.arturborowy.ultimatelogger.UltimateLoggerInitializer
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
-object AndroidUltLogInitializer {
+object AndroidUltLogInitializer : UltimateLoggerInitializer {
 
-    fun init(isDebug: Boolean,
-             defaultTagSettings: TagSettings) {
-        val ultLog = lazy { ALog }
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, ultLog, AndroidLog())
+    override fun init(shouldLog: Boolean,
+                      defaultTagSettings: TagSettings) {
+        val ultimateLogger = lazy { ALog }
+        MpUltimateLoggerInitializer.init(shouldLog,
+                defaultTagSettings,
+                ultimateLogger,
+                AndroidLog())
     }
-
-    fun destroy() = UltLogInitializer.destroy()
 }

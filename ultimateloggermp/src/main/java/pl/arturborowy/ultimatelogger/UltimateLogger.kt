@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger
 
-internal interface UltimateLoggerLogMethods {
+internal interface UltimateLogger {
 
     companion object {
         private const val DEFAULT_LOG_MESSAGE = "Empty log"

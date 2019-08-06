@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger
 
-internal interface UltLogDelegationContract : UltimateLoggerLogMethods {
+internal interface InitializableUltimateLogger : UltimateLogger {
 
     fun init(shouldLog: Boolean)
 }

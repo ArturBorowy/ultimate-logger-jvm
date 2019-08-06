@@ -4,7 +4,7 @@ import org.koin.dsl.module
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.di.tags.LoggerTag
 import pl.arturborowy.ultimatelogger.di.util.named
-import pl.arturborowy.ultimatelogger.output.DebugMultiPriorityLogger
+import pl.arturborowy.ultimatelogger.output.LoggingIfIsOnMultiPriorityLogger
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 import pl.arturborowy.ultimatelogger.output.SwitchableMultiPriorityLogger
 import pl.arturborowy.ultimatelogger.tag.builder.TagDataTagBuilder
@@ -33,5 +33,5 @@ internal fun applicationModule(logOutput: MultiPriorityLogger) = module {
 
     single(named(LoggerTag.DEFAULT)) { logOutput }
     single<SwitchableMultiPriorityLogger>
-    { DebugMultiPriorityLogger(get(named(LoggerTag.DEFAULT)), false) }
+    { LoggingIfIsOnMultiPriorityLogger(get(named(LoggerTag.DEFAULT)), false) }
 }

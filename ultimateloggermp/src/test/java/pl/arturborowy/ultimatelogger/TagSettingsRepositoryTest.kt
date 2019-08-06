@@ -3,14 +3,14 @@ package pl.arturborowy.ultimatelogger
 import org.junit.Assert
 import org.junit.Test
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
-import pl.arturborowy.ultimatelogger.exception.UltLogNotInitializedException
+import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 internal class TagSettingsRepositoryTest {
 
     private val tagSettingsRepository = TagSettingsRepository()
 
-    @Test(expected = UltLogNotInitializedException::class)
+    @Test(expected = UltimateLoggerNotInitializedException::class)
     fun `defaultTagSettings getter throws exception if defaultTagSettings isn't set`() {
         tagSettingsRepository.defaultTagSettings
     }

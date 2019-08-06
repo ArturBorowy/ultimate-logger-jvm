@@ -5,7 +5,7 @@ import pl.arturborowy.ultimatelogger.output.SwitchableMultiPriorityLogger
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProvider
 import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProvider
 
-abstract class DelegatedUltLog : UltLogDelegationContract {
+abstract class SwitchableMultiPriorityUltimateLogger : InitializableUltimateLogger {
 
     private val logger: SwitchableMultiPriorityLogger by LazyServiceLocator.getDependency()
     private val stringTagProvider: StringTagProvider by LazyServiceLocator.getDependency()
