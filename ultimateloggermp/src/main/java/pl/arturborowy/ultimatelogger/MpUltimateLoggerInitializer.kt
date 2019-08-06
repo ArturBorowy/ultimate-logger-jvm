@@ -1,10 +1,10 @@
 package pl.arturborowy.ultimatelogger
 
+import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 import pl.arturborowy.ultimatelogger.di.ServiceLocatorInitializer
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
-import pl.arturborowy.ultimatelogger.tag.TagSettings
 import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.ClassIgnorableStackTraceElementProvider
 import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceTagDataProvider
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProviderWithTagData

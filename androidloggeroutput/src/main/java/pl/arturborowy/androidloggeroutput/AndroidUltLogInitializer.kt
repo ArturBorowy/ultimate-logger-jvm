@@ -1,8 +1,8 @@
 package pl.arturborowy.androidloggeroutput
 
+import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.MpUltimateLoggerInitializer
 import pl.arturborowy.ultimatelogger.UltimateLoggerInitializer
-import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 object AndroidUltLogInitializer : UltimateLoggerInitializer {
 

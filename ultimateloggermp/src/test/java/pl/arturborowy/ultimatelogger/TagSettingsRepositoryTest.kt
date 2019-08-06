@@ -2,9 +2,9 @@ package pl.arturborowy.ultimatelogger
 
 import org.junit.Assert
 import org.junit.Test
+import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
-import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 internal class TagSettingsRepositoryTest {
 
