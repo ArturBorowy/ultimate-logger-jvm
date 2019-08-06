@@ -2,7 +2,6 @@ package pl.arturborowy.jvmloggeroutput
 
 import pl.arturborowy.ultimatelogger.MpUltimateLoggerInitializer
 import pl.arturborowy.ultimatelogger.UltimateLoggerInitializer
-import pl.arturborowy.ultimatelogger.di.JvmLog
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 object JvmUltLogInitializer : UltimateLoggerInitializer {

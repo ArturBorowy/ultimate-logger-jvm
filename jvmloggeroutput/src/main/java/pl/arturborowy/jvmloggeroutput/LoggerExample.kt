@@ -1,6 +1,5 @@
 package pl.arturborowy.jvmloggeroutput
 
-import pl.arturborowy.ultimatelogger.di.JvmLog
 import pl.arturborowy.ultimatelogger.tag.TagSettings
 
 internal fun main(args: Array<String>) {

@@ -1,4 +1,4 @@
-package pl.arturborowy.ultimatelogger.di
+package pl.arturborowy.jvmloggeroutput
 
 import pl.arturborowy.ultimatelogger.SwitchableMultiPriorityUltimateLogger
 
