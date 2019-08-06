@@ -25,18 +25,6 @@ object UltLogInitializer {
     }
 
     private fun setDefaultTagSettings(defaultTagSettings: TagSettings) {
-        val defaultClassesToIgnore = listOf(
-                UltLog::class,
-                StackTraceTagDataProvider::class,
-                StringTagProviderWithTagData::class,
-                DelegatedUltLog::class,
-                UltimateLoggerLogMethods::class,
-                ThrowableTagProviderFromStringTagProvider::class,
-                ClassIgnorableStackTraceElementProvider::class
-        )
-
-        defaultTagSettings.classesToIgnore.addAll(defaultClassesToIgnore)
-
         val tagSettingsRepository: TagSettingsRepository by LazyServiceLocator.getDependency()
         tagSettingsRepository.defaultTagSettings = defaultTagSettings
     }
