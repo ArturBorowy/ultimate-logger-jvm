@@ -16,6 +16,7 @@ internal class ClassIgnorableStackTraceElementProvider(tagSettingsRepository: Ta
             val ste = stElements[i]
             if (namesOfClassesToIgnore.contains(ste.className).not()
                     && namesOfClassesToIgnore.map { "$it\$DefaultImpls" }.contains(ste.className).not()
+                    && ste.className.contains("pl.arturborowy.ultimatelogger").not()
                     && ste.className.indexOf("java.lang.Thread") != 0) {
                 return ste
             }
