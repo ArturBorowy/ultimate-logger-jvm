@@ -4,17 +4,29 @@ import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 import pl.arturborowy.ultimatelogger.di.ServiceLocatorInitializer
+import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
 object MpUltimateLoggerInitializer {
 
+    /**
+     * Needed in GenericLoggingExtensions.kt.
+     */
+    internal val ultimateLogger : SwitchableMultiPriorityUltimateLogger
+    get() = ultimateLoggerNullable ?: throw UltimateLoggerNotInitializedException()
+
+    private var ultimateLoggerNullable : SwitchableMultiPriorityUltimateLogger? = null
+
+
     fun init(shouldLog: Boolean,
              defaultTagSettings: TagSettings,
-             ultimateLogger: Lazy<SwitchableMultiPriorityUltimateLogger>,
+             ultimateLoggerLazy: Lazy<SwitchableMultiPriorityUltimateLogger>,
              logOutput: MultiPriorityLogger) {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
-        ultimateLogger.value.init(shouldLog)
+
+        this.ultimateLoggerNullable = ultimateLoggerLazy.value
+        ultimateLoggerLazy.value.init(shouldLog)
     }
 
     private fun initServiceLocator(logOutput: MultiPriorityLogger) {
