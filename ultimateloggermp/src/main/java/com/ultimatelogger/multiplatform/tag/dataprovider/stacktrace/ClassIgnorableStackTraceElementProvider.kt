@@ -36,7 +36,9 @@ internal class ClassIgnorableStackTraceElementProvider(
 
         val defaultClassesToIgnore = listOf(
                 "dalvik.system.VMStack",
-                "pl.arturborowy.ultimatelogger",
+                "com.ultimatelogger.multiplatform",
+                "com.ultimatelogger.android.output",
+                "com.ultimatelogger.jvm.output",
                 "java.lang.Thread"
         )
 
