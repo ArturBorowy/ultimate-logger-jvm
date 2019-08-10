@@ -12,10 +12,10 @@ object MpUltimateLoggerInitializer {
     /**
      * Needed in GenericLoggingExtensions.kt.
      */
-    internal val ultimateLogger : SwitchableMultiPriorityUltimateLogger
-    get() = ultimateLoggerNullable ?: throw UltimateLoggerNotInitializedException()
+    internal val ultimateLogger: SwitchableMultiPriorityUltimateLogger
+        get() = ultimateLoggerNullable ?: throw UltimateLoggerNotInitializedException()
 
-    private var ultimateLoggerNullable : SwitchableMultiPriorityUltimateLogger? = null
+    private var ultimateLoggerNullable: SwitchableMultiPriorityUltimateLogger? = null
 
 
     fun init(shouldLog: Boolean,
