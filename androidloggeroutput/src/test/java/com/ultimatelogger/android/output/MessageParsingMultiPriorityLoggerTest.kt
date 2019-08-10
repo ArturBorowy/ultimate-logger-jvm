@@ -7,7 +7,7 @@ import org.junit.Test
 import org.mockito.Mockito
 import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
-class MessageParsingMultiPriorityLoggerTest {
+internal class MessageParsingMultiPriorityLoggerTest {
 
     private val mockMultiPriorityLogger: MultiPriorityLogger = mock()
     private val mockMessageForThrowableLogParser: MessageForThrowableLogParser = mock()

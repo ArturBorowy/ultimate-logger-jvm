@@ -1,6 +1,6 @@
 package com.ultimatelogger.android.output.tag
 
-class AndroidTagCutter(private val apiVersion: Int) : TagCutter {
+internal class AndroidTagCutter(private val apiVersion: Int) : TagCutter {
 
     companion object {
         private const val TAG_LENGTH_LIMIT = 23

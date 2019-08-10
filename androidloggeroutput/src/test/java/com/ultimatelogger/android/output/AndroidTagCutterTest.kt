@@ -4,7 +4,7 @@ import com.ultimatelogger.android.output.tag.AndroidTagCutter
 import org.junit.Assert
 import org.junit.Test
 
-class AndroidTagCutterTest {
+internal class AndroidTagCutterTest {
 
     @Test
     fun `toLimit() returns givenTag if is shorter than limit`() {

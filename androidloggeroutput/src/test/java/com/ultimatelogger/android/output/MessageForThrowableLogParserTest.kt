@@ -4,7 +4,7 @@ import com.ultimatelogger.android.output.MessageForThrowableLogParser
 import org.junit.Assert
 import org.junit.Test
 
-class MessageForThrowableLogParserTest {
+internal class MessageForThrowableLogParserTest {
 
     private val messageForThrowableLogParser = MessageForThrowableLogParser()
 

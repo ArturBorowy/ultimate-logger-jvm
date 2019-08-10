@@ -1,6 +1,6 @@
 package com.ultimatelogger.android.output.tag
 
-interface TagCutter {
+internal interface TagCutter {
 
     fun toLimit(tag: String?) : String?
 }
