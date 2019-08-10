@@ -46,7 +46,7 @@ internal class ClassIgnorableStackTraceElementProviderTest {
     }
 
     @Test
-    fun `getStackTraceElement() ignores every classes that should`() {
+    fun `getStackTraceElement() ignores every class that it should`() {
         given(mockStackTraceFromThreadProvider.provide())
                 .willReturn(TestData.getStackTraceWithElementsShouldBeIgnored())
 
