@@ -1,4 +1,4 @@
-package pl.arturborowy.example
+package pl.arturborowy.android.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import pl.arturborowy.androidloggeroutput.AndroidUltLogInitializer
 import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.tw
 
-class LoggingActivity : AppCompatActivity() {
+internal class LoggingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

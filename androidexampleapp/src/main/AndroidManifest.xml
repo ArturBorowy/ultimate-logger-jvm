@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".example.LoggingActivity">
+        <activity android:name="pl.arturborowy.android.example.LoggingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
