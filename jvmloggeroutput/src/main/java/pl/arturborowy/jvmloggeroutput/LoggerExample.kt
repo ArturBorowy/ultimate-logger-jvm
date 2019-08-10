@@ -1,6 +1,7 @@
 package pl.arturborowy.jvmloggeroutput
 
 import pl.arturborowy.tagsettings.TagSettings
+import pl.arturborowy.ultimatelogger.tw
 
 internal fun main(args: Array<String>) {
     JvmUltLogInitializer.init(true,
@@ -26,4 +27,6 @@ internal fun main(args: Array<String>) {
     JvmLog.wtf("JvmLog.wtf")
     JvmLog.wtf(Exception())
     JvmLog.wtf(Any())
+
+    (null as String?).tw {  }
 }
