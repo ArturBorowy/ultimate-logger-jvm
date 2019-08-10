@@ -1,8 +1,8 @@
 package com.ultimatelogger.multiplatform.loggingifisonmultiprioritylogger
 
+import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 import org.junit.Test
 import org.mockito.Mockito
-import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
 internal class LoggingIfIsOnMultiPriorityLoggerIsLoggingOnFalseTest :
         LoggingIfIsOnMultiPriorityLoggerTest(false) {

@@ -1,10 +1,10 @@
 package com.ultimatelogger.multiplatform.swichablemultipriorityultimatelogger
 
 import com.nhaarman.mockitokotlin2.given
-import org.junit.Test
-import org.mockito.Mockito
 import com.ultimatelogger.multiplatform.SwitchableMultiPriorityUltimateLogger
 import com.ultimatelogger.multiplatform.output.SwitchableMultiPriorityLogger
+import org.junit.Test
+import org.mockito.Mockito
 
 internal class SwitchableMultiPriorityUltimateLoggerAnyTest :
         SwitchableMultiPriorityUltimateLoggerTest() {

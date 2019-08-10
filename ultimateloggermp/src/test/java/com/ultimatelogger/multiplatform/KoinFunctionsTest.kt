@@ -1,9 +1,9 @@
 package com.ultimatelogger.multiplatform
 
+import com.ultimatelogger.multiplatform.di.util.named
 import org.junit.Assert
 import org.junit.Test
 import org.koin.core.qualifier.StringQualifier
-import com.ultimatelogger.multiplatform.di.util.named
 
 internal class KoinFunctionsTest {
 

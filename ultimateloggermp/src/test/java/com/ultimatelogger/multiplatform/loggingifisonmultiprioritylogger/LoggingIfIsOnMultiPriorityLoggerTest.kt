@@ -1,10 +1,10 @@
 package com.ultimatelogger.multiplatform.loggingifisonmultiprioritylogger
 
 import com.nhaarman.mockitokotlin2.mock
-import org.mockito.Mockito
-import org.mockito.verification.VerificationMode
 import com.ultimatelogger.multiplatform.output.LoggingIfIsOnMultiPriorityLogger
 import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
+import org.mockito.Mockito
+import org.mockito.verification.VerificationMode
 
 internal abstract class LoggingIfIsOnMultiPriorityLoggerTest(isLoggingOn: Boolean) {
 

@@ -2,10 +2,10 @@ package com.ultimatelogger.android.output
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
 internal class MessageParsingMultiPriorityLoggerTest {
 
