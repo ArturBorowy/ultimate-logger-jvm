@@ -1,6 +1,6 @@
 package com.ultimatelogger.multiplatform
 
-import com.ultimatelogger.tagsettings.TagSettings
+import com.ultimatelogger.multiplatform.tag.TagSettings
 
 interface UltimateLoggerInitializer {
 
