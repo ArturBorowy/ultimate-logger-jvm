@@ -6,17 +6,15 @@ import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 import pl.arturborowy.ultimatelogger.di.ServiceLocatorInitializer
 import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
+import pl.arturborowy.ultimatelogger.util.CryptoNullable
 
 object MpUltimateLoggerInitializer {
 
     /**
      * Needed in GenericLoggingExtensions.kt.
      */
-    internal val ultimateLogger: SwitchableMultiPriorityUltimateLogger
-        get() = ultimateLoggerNullable ?: throw UltimateLoggerNotInitializedException()
-
-    private var ultimateLoggerNullable: SwitchableMultiPriorityUltimateLogger? = null
-
+    internal var ultimateLogger: SwitchableMultiPriorityUltimateLogger
+            by CryptoNullable(UltimateLoggerNotInitializedException())
 
     fun init(shouldLog: Boolean,
              defaultTagSettings: TagSettings,
@@ -25,7 +23,7 @@ object MpUltimateLoggerInitializer {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
 
-        this.ultimateLoggerNullable = ultimateLoggerLazy.value
+        ultimateLogger = ultimateLoggerLazy.value
         ultimateLoggerLazy.value.init(shouldLog)
     }
 
