@@ -1,12 +1,12 @@
 package com.ultimatelogger.jvm.example
 
 import com.ultimatelogger.jvm.output.JvmLog
-import com.ultimatelogger.jvm.output.JvmUltLogInitializer
+import com.ultimatelogger.jvm.output.JvmLogInitializer
 import com.ultimatelogger.multiplatform.tag.TagSettings
 import com.ultimatelogger.multiplatform.tw
 
 internal fun main(args: Array<String>) {
-    JvmUltLogInitializer.init(true,
+    JvmLogInitializer.init(true,
             TagSettings(shouldLogFileNameAndLineNum = true,
                     shouldLogClassName = true,
                     shouldLogMethodName = true))

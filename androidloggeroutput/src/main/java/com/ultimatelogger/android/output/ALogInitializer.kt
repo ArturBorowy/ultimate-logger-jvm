@@ -1,17 +1,17 @@
-package com.ultimatelogger.jvm.output
+package com.ultimatelogger.android.output
 
 import com.ultimatelogger.multiplatform.MpUltimateLoggerInitializer
 import com.ultimatelogger.multiplatform.UltimateLoggerInitializer
 import com.ultimatelogger.multiplatform.tag.TagSettings
 
-object JvmUltLogInitializer : UltimateLoggerInitializer {
+object ALogInitializer : UltimateLoggerInitializer {
 
     override fun init(shouldLog: Boolean,
                       defaultTagSettings: TagSettings) {
-        val ultimateLogger = lazy { JvmLog }
+        val ultimateLogger = lazy { ALog }
         MpUltimateLoggerInitializer.init(shouldLog,
                 defaultTagSettings,
                 ultimateLogger,
-                SystemOutPrintLogger())
+                MessageParsingMultiPriorityLogger(AndroidLog(), MessageForThrowableLogParser()))
     }
 }
