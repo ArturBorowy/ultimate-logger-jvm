@@ -1,5 +1,7 @@
-package com.ultimatelogger.jvm.output
+package com.ultimatelogger.jvm.example
 
+import com.ultimatelogger.jvm.output.JvmLog
+import com.ultimatelogger.jvm.output.JvmUltLogInitializer
 import com.ultimatelogger.tagsettings.TagSettings
 import com.ultimatelogger.multiplatform.tw
 
