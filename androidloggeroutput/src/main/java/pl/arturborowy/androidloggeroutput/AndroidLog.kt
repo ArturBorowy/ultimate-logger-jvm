@@ -22,7 +22,7 @@ internal class AndroidLog : MultiPriorityLogger {
     }
 
     override fun e(tag: String?, msg: String?, throwable: Throwable?) {
-        Log.e(tag, getMsg(msg, throwable), throwable)
+        Log.e(tag, msg, throwable)
     }
 
     override fun wtf(tag: String?, msg: String?, throwable: Throwable?) {
@@ -32,11 +32,4 @@ internal class AndroidLog : MultiPriorityLogger {
     override fun println(priority: Int, tag: String?, msg: String?) {
         Log.println(priority, tag, msg)
     }
-
-    private fun getMsg(msg: String?, throwable: Throwable?) =
-            if (msg == null && throwable != null) {
-                ""
-            } else {
-                msg
-            }
 }
