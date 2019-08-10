@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ultimatelogger">
+    package="com.ultimatelogger.android">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.ultimatelogger.com.ultimatelogger.android.example.LoggingActivity">
+        <activity android:name=".example.LoggingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

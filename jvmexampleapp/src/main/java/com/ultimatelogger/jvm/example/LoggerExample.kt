@@ -1,10 +1,12 @@
-package com.ultimatelogger.jvm.output
+package com.ultimatelogger.jvm.example
 
-import com.ultimatelogger.tagsettings.TagSettings
+import com.ultimatelogger.jvm.output.JvmLog
+import com.ultimatelogger.jvm.output.JvmLogInitializer
+import com.ultimatelogger.multiplatform.tag.TagSettings
 import com.ultimatelogger.multiplatform.tw
 
 internal fun main(args: Array<String>) {
-    JvmUltLogInitializer.init(true,
+    JvmLogInitializer.init(true,
             TagSettings(shouldLogFileNameAndLineNum = true,
                     shouldLogClassName = true,
                     shouldLogMethodName = true))
@@ -28,5 +30,5 @@ internal fun main(args: Array<String>) {
     JvmLog.wtf(Exception())
     JvmLog.wtf(Any())
 
-    (null as String?).tw {  }
+    (null as String?).tw { }
 }

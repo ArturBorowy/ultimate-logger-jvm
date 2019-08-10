@@ -2,14 +2,13 @@ package com.ultimatelogger.multiplatform.tag
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
-import com.ultimatelogger.tagsettings.TagSettings
 import com.ultimatelogger.multiplatform.data.TagSettingsRepository
 import com.ultimatelogger.multiplatform.tag.dataprovider.stacktrace.ClassIgnorableStackTraceElementProvider
 import com.ultimatelogger.multiplatform.tag.dataprovider.stacktrace.StackTraceFromThreadProvider
 import com.ultimatelogger.multiplatform.util.TestData
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
 
 internal class ClassIgnorableStackTraceElementProviderTest {
 

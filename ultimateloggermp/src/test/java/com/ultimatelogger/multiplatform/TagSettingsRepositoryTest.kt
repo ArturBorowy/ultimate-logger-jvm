@@ -1,10 +1,10 @@
 package com.ultimatelogger.multiplatform
 
-import org.junit.Assert
-import org.junit.Test
-import com.ultimatelogger.tagsettings.TagSettings
 import com.ultimatelogger.multiplatform.data.TagSettingsRepository
 import com.ultimatelogger.multiplatform.exception.UltimateLoggerNotInitializedException
+import com.ultimatelogger.multiplatform.tag.TagSettings
+import org.junit.Assert
+import org.junit.Test
 
 internal class TagSettingsRepositoryTest {
 
