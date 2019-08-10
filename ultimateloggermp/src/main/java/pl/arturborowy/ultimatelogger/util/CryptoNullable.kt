@@ -7,14 +7,14 @@ import kotlin.reflect.KProperty
  * Similar to Kotlin's `Delegates.notNull()`, but with custom throwable.
  */
 class CryptoNullable<ValueT>(private val throwableToThrowIfNull: Throwable) :
-        ReadWriteProperty<ValueT, ValueT> {
+        ReadWriteProperty<Any?, ValueT> {
 
     private var storedValue: ValueT? = null
 
-    override fun getValue(thisRef: ValueT, property: KProperty<*>): ValueT =
+    override fun getValue(thisRef: Any?, property: KProperty<*>): ValueT =
             storedValue ?: throw throwableToThrowIfNull
 
-    override fun setValue(thisRef: ValueT, property: KProperty<*>, value: ValueT) {
+   override fun setValue(thisRef: Any?, property: KProperty<*>, value: ValueT) {
         storedValue = value
     }
 }
