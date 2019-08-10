@@ -2,5 +2,4 @@ include ':androidexampleapp',
         ':androidloggeroutput',
         ':ultimateloggermp',
         ':jvmloggeroutput',
-        ':tagsettings',
         ':jvmexampleapp'

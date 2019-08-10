@@ -1,11 +1,11 @@
 package com.ultimatelogger.multiplatform
 
-import com.ultimatelogger.tagsettings.TagSettings
 import com.ultimatelogger.multiplatform.data.TagSettingsRepository
 import com.ultimatelogger.multiplatform.di.LazyServiceLocator
 import com.ultimatelogger.multiplatform.di.ServiceLocatorInitializer
 import com.ultimatelogger.multiplatform.exception.UltimateLoggerNotInitializedException
 import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
+import com.ultimatelogger.multiplatform.tag.TagSettings
 import com.ultimatelogger.multiplatform.util.CryptoNullable
 
 object MpUltimateLoggerInitializer {

@@ -1,8 +1,8 @@
 package com.ultimatelogger.android.output
 
-import com.ultimatelogger.tagsettings.TagSettings
 import com.ultimatelogger.multiplatform.MpUltimateLoggerInitializer
 import com.ultimatelogger.multiplatform.UltimateLoggerInitializer
+import com.ultimatelogger.multiplatform.tag.TagSettings
 
 object AndroidUltLogInitializer : UltimateLoggerInitializer {
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ultimatelogger.android.output.ALog
 import com.ultimatelogger.android.output.AndroidUltLogInitializer
-import com.ultimatelogger.tagsettings.TagSettings
+import com.ultimatelogger.multiplatform.tag.TagSettings
 import com.ultimatelogger.multiplatform.tw
 
 internal class LoggingActivity : AppCompatActivity() {
@@ -20,6 +20,6 @@ internal class LoggingActivity : AppCompatActivity() {
         ALog.e("12345")
         ALog.e(Exception())
 
-        (null as String?).tw {  }
+        (null as String?).tw { }
     }
 }

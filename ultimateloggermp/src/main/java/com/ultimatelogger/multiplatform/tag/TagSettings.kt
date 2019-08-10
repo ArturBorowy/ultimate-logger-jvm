@@ -1,4 +1,4 @@
-package com.ultimatelogger.tagsettings
+package com.ultimatelogger.multiplatform.tag
 
 import kotlin.reflect.KClass
 
