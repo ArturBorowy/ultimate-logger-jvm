@@ -12,6 +12,6 @@ object AndroidUltLogInitializer : UltimateLoggerInitializer {
         MpUltimateLoggerInitializer.init(shouldLog,
                 defaultTagSettings,
                 ultimateLogger,
-                AndroidLog())
+                MessageParsingMultiPriorityLogger(AndroidLog(), MessageForThrowableLogParser()))
     }
 }

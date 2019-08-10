@@ -11,9 +11,7 @@ import pl.arturborowy.ultimatelogger.tag.builder.TagDataTagBuilder
 import pl.arturborowy.ultimatelogger.tag.builder.TagDataTagBuilderWithDefaultSettings
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataConverter
 import pl.arturborowy.ultimatelogger.tag.dataprovider.TagDataProvider
-import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.ClassIgnorableStackTraceElementProvider
-import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceElementProvider
-import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceTagDataProvider
+import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.*
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProvider
 import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProviderWithTagData
 import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProvider
@@ -28,7 +26,9 @@ internal fun applicationModule(logOutput: MultiPriorityLogger) = module {
     single { TagDataConverter() }
     single { TagSettingsRepository() }
 
-    single<StackTraceElementProvider> { ClassIgnorableStackTraceElementProvider(get()) }
+    single<StackTraceProvider> { StackTraceFromThreadProvider() }
+
+    single<StackTraceElementProvider> { ClassIgnorableStackTraceElementProvider(get(), get()) }
     single<TagDataProvider> { StackTraceTagDataProvider(get(), get()) }
 
     single(named(LoggerTag.DEFAULT)) { logOutput }
