@@ -1,16 +1,17 @@
-package pl.arturborowy.ultimatelogger.debugmultiprioritylogger
+package pl.arturborowy.ultimatelogger.loggingifisonmultiprioritylogger
 
 import com.nhaarman.mockitokotlin2.mock
 import org.mockito.Mockito
 import org.mockito.verification.VerificationMode
-import pl.arturborowy.ultimatelogger.output.DebugMultiPriorityLogger
+import pl.arturborowy.ultimatelogger.output.LoggingIfIsOnMultiPriorityLogger
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-internal abstract class DebugMultiPriorityLoggerTest(isDebug: Boolean) {
+internal abstract class LoggingIfIsOnMultiPriorityLoggerTest(isLoggingOn: Boolean) {
 
     protected val mockLogger: MultiPriorityLogger = mock()
 
-    protected val debugMultiPriorityLogger = DebugMultiPriorityLogger(mockLogger, isDebug)
+    protected val loggingIfIsOnMultiPriorityLogger =
+            LoggingIfIsOnMultiPriorityLogger(mockLogger, isLoggingOn)
 
     protected val givenTag = "12345"
     protected val givenMsg = "[]];"

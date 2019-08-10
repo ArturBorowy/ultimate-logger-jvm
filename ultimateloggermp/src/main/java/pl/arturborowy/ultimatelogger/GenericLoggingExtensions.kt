@@ -33,5 +33,7 @@ fun <T> T?.tw(block: (T?) -> Unit) = tw(block, { logUnsuccessfulTrial() })
  */
 fun <T> T?.ti(block: T.() -> Unit) = ti(block, { logUnsuccessfulTrial() })
 
-private fun logUnsuccessfulTrial() =
-        UltLog.e("Tried ti run block, but given T-type object is null!")
+private fun logUnsuccessfulTrial() {
+    MpUltimateLoggerInitializer.ultimateLogger
+            .w("Tried to run block, but given T-type object is null!")
+}

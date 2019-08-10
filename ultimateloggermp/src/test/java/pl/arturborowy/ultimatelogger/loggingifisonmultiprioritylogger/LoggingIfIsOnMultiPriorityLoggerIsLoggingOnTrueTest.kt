@@ -1,57 +1,57 @@
-package pl.arturborowy.ultimatelogger.debugmultiprioritylogger
+package pl.arturborowy.ultimatelogger.loggingifisonmultiprioritylogger
 
 import org.junit.Test
 import org.mockito.Mockito
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
 
-internal class DebugMultiPriorityLoggerIsDebugTrueTest :
-        DebugMultiPriorityLoggerTest(true) {
+internal class LoggingIfIsOnMultiPriorityLoggerIsLoggingOnTrueTest :
+        LoggingIfIsOnMultiPriorityLoggerTest(true) {
 
     @Test
     fun `v() calls v() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.v(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.v(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { v(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `d() calls d() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.d(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.d(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { d(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `i() calls i() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.i(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.i(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { i(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `w() calls w() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.w(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.w(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { w(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `e() calls e() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.e(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.e(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { e(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `wtf() calls wtf() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.wtf(givenTag, givenMsg, givenThrowable)
+        loggingIfIsOnMultiPriorityLogger.wtf(givenTag, givenMsg, givenThrowable)
 
         verifyCalledOnceOnMockLogger { wtf(givenTag, givenMsg, givenThrowable) }
     }
 
     @Test
     fun `println() calls println() with same arguments on givenLogger`() {
-        debugMultiPriorityLogger.println(givenPriority, givenMsg, givenMsg)
+        loggingIfIsOnMultiPriorityLogger.println(givenPriority, givenMsg, givenMsg)
 
         verifyCalledOnceOnMockLogger { println(givenPriority, givenMsg, givenMsg) }
     }

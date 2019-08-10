@@ -1,14 +1,17 @@
 package pl.arturborowy.jvmloggeroutput
 
-import pl.arturborowy.ultimatelogger.UltLogInitializer
-import pl.arturborowy.ultimatelogger.tag.TagSettings
+import pl.arturborowy.tagsettings.TagSettings
+import pl.arturborowy.ultimatelogger.MpUltimateLoggerInitializer
+import pl.arturborowy.ultimatelogger.UltimateLoggerInitializer
 
-object JvmUltLogInitializer {
+object JvmUltLogInitializer : UltimateLoggerInitializer {
 
-    fun init(isDebug: Boolean,
-             defaultTagSettings: TagSettings) {
-        UltLogInitializer.initDebug(isDebug, defaultTagSettings, SystemOutPrintLogger())
+    override fun init(shouldLog: Boolean,
+                      defaultTagSettings: TagSettings) {
+        val ultimateLogger = lazy { JvmLog }
+        MpUltimateLoggerInitializer.init(shouldLog,
+                defaultTagSettings,
+                ultimateLogger,
+                SystemOutPrintLogger())
     }
-
-    fun destroy() = UltLogInitializer.destroy()
 }

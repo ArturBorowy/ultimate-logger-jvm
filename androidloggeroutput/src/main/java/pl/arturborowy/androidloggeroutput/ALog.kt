@@ -1,0 +1,5 @@
+package pl.arturborowy.androidloggeroutput
+
+import pl.arturborowy.ultimatelogger.SwitchableMultiPriorityUltimateLogger
+
+object ALog : SwitchableMultiPriorityUltimateLogger()

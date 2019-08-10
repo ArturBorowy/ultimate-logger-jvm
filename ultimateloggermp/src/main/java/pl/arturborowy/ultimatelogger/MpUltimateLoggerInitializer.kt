@@ -1,23 +1,30 @@
 package pl.arturborowy.ultimatelogger
 
+import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.data.TagSettingsRepository
 import pl.arturborowy.ultimatelogger.di.LazyServiceLocator
 import pl.arturborowy.ultimatelogger.di.ServiceLocatorInitializer
+import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
 import pl.arturborowy.ultimatelogger.output.MultiPriorityLogger
-import pl.arturborowy.ultimatelogger.tag.TagSettings
-import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.ClassIgnorableStackTraceElementProvider
-import pl.arturborowy.ultimatelogger.tag.dataprovider.stacktrace.StackTraceTagDataProvider
-import pl.arturborowy.ultimatelogger.tag.provider.string.StringTagProviderWithTagData
-import pl.arturborowy.ultimatelogger.tag.provider.throwable.ThrowableTagProviderFromStringTagProvider
+import pl.arturborowy.ultimatelogger.util.CryptoNullable
 
-object UltLogInitializer {
+object MpUltimateLoggerInitializer {
 
-    fun initDebug(isDebug: Boolean,
-                  defaultTagSettings: TagSettings,
-                  logOutput: MultiPriorityLogger) {
+    /**
+     * Needed in GenericLoggingExtensions.kt.
+     */
+    internal var ultimateLogger: SwitchableMultiPriorityUltimateLogger
+            by CryptoNullable(UltimateLoggerNotInitializedException())
+
+    fun init(shouldLog: Boolean,
+             defaultTagSettings: TagSettings,
+             ultimateLoggerLazy: Lazy<SwitchableMultiPriorityUltimateLogger>,
+             logOutput: MultiPriorityLogger) {
         initServiceLocator(logOutput)
         setDefaultTagSettings(defaultTagSettings)
-        UltLog.init(isDebug)
+
+        ultimateLogger = ultimateLoggerLazy.value
+        ultimateLoggerLazy.value.init(shouldLog)
     }
 
     private fun initServiceLocator(logOutput: MultiPriorityLogger) {

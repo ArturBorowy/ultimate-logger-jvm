@@ -1,0 +1,5 @@
+package pl.arturborowy.jvmloggeroutput
+
+import pl.arturborowy.ultimatelogger.SwitchableMultiPriorityUltimateLogger
+
+object JvmLog : SwitchableMultiPriorityUltimateLogger()
