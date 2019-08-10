@@ -36,24 +36,24 @@ internal class SystemOutPrintLogger : MultiPriorityLogger {
                        tag: String?,
                        msg: String?,
                        throwable: Throwable?) {
-        log({ printOut(it) }, levelName, tag, msg, throwable)
+        log({ printOut(it) }, { printOutLn(it) }, levelName, tag, msg, throwable)
     }
 
     private fun logErr(levelName: String,
                        tag: String?,
                        msg: String?,
                        throwable: Throwable?) {
-        log({ printErr(it) }, levelName, tag, msg, throwable)
+        log({ printErr(it) }, { printErrLn(it) }, levelName, tag, msg, throwable)
     }
 
     private fun log(printer: (String) -> Unit,
+                    printerNextLine: (String) -> Unit,
                     levelName: String,
                     tag: String?,
                     msg: String?,
                     throwable: Throwable?) {
         if (throwable == null) {
-            printer(buildLog(levelName, tag, msg))
-            startNextLine()
+            printerNextLine(buildLog(levelName, tag, msg))
         } else {
             printer(buildLog(levelName, tag, msg ?: ""))
             throwable.printStackTrace()
@@ -64,9 +64,11 @@ internal class SystemOutPrintLogger : MultiPriorityLogger {
         return "[$levelName] $tag: $msg"
     }
 
-    private fun startNextLine() = System.out.println()
-
     private fun printOut(string: String?) = System.out.print(string)
 
     private fun printErr(string: String?) = System.err.print(string)
+
+    private fun printOutLn(string: String?) = System.out.println(string)
+
+    private fun printErrLn(string: String?) = System.err.println(string)
 }
