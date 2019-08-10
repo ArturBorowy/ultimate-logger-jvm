@@ -6,6 +6,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
+
+    api project(path: ':tagsettings')
     api project(path: ':ultimateloggermp')
 }
 

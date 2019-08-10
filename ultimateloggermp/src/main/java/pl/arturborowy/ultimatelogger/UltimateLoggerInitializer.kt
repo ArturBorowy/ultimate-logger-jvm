@@ -1,6 +1,6 @@
 package pl.arturborowy.ultimatelogger
 
-import pl.arturborowy.ultimatelogger.tag.TagSettings
+import pl.arturborowy.tagsettings.TagSettings
 
 interface UltimateLoggerInitializer {
 

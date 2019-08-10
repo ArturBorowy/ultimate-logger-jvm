@@ -1,15 +1,10 @@
 package pl.arturborowy.ultimatelogger.data
 
+import pl.arturborowy.tagsettings.TagSettings
 import pl.arturborowy.ultimatelogger.exception.UltimateLoggerNotInitializedException
-import pl.arturborowy.ultimatelogger.tag.TagSettings
+import pl.arturborowy.ultimatelogger.util.CryptoNullable
 
 internal class TagSettingsRepository {
 
-    var defaultTagSettings: TagSettings
-        get() = defaultTagSettingsInternal ?: throw UltimateLoggerNotInitializedException()
-        set(value) {
-            defaultTagSettingsInternal = value
-        }
-
-    private var defaultTagSettingsInternal: TagSettings? = null
+    var defaultTagSettings: TagSettings by CryptoNullable(UltimateLoggerNotInitializedException())
 }

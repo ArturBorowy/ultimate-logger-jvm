@@ -1,4 +1,4 @@
-package pl.arturborowy.ultimatelogger.tag
+package pl.arturborowy.tagsettings
 
 import kotlin.reflect.KClass
 
