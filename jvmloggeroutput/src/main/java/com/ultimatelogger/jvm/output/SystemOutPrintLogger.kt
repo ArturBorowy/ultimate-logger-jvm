@@ -46,16 +46,16 @@ internal class SystemOutPrintLogger : MultiPriorityLogger {
         log({ printErr(it) }, { printErrLn(it) }, levelName, tag, msg, throwable)
     }
 
-    private fun log(printer: (String) -> Unit,
-                    printerNextLine: (String) -> Unit,
+    private fun log(printPartOfLine: (String) -> Unit,
+                    printSingleLine: (String) -> Unit,
                     levelName: String,
                     tag: String?,
                     msg: String?,
                     throwable: Throwable?) {
         if (throwable == null) {
-            printerNextLine(buildLog(levelName, tag, msg))
+            printSingleLine(buildLog(levelName, tag, msg))
         } else {
-            printer(buildLog(levelName, tag, msg ?: ""))
+            printPartOfLine(buildLog(levelName, tag, msg ?: ""))
             throwable.printStackTrace()
         }
     }
