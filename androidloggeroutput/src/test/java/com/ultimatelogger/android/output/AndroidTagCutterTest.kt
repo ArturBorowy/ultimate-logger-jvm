@@ -25,7 +25,7 @@ internal class AndroidTagCutterTest {
     }
 
     @Test
-    fun `toLimit() returns givenTag if is longer than limit but api is lower then 23`() {
+    fun `toLimit() returns cut tag if is longer than limit but api is lower then 23`() {
         val givenApiVersion = 1
         val androidTagCutter = AndroidTagCutter(givenApiVersion)
         val givenTag = "123456789012345678901234567890"
