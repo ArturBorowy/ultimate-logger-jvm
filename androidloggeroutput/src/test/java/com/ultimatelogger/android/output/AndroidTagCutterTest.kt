@@ -7,6 +7,15 @@ import org.junit.Test
 internal class AndroidTagCutterTest {
 
     @Test
+    fun `toLimit() returns null if givenTag == null`() {
+        val givenApiVersion = 1
+        val androidTagCutter = AndroidTagCutter(givenApiVersion)
+        val givenTag : String? = null
+
+        Assert.assertEquals(null, androidTagCutter.toLimit(givenTag))
+    }
+
+    @Test
     fun `toLimit() returns givenTag if is shorter than limit`() {
         val givenApiVersion = 1
         val androidTagCutter = AndroidTagCutter(givenApiVersion)
