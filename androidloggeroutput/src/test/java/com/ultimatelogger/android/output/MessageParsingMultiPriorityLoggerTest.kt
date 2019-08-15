@@ -2,12 +2,12 @@ package com.ultimatelogger.android.output
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
-class MessageParsingMultiPriorityLoggerTest {
+internal class MessageParsingMultiPriorityLoggerTest {
 
     private val mockMultiPriorityLogger: MultiPriorityLogger = mock()
     private val mockMessageForThrowableLogParser: MessageForThrowableLogParser = mock()
