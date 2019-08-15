@@ -30,7 +30,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    api project(path: ':ultimateloggermp')
+    api project(path: ':ultimate-logger-mp')
 
     implementation "androidx.core:core-ktx:1.0.2"
     implementation 'androidx.appcompat:appcompat:1.0.2'

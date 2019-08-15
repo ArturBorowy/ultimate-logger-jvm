@@ -1,5 +1,5 @@
 include ':androidexampleapp',
         ':androidloggeroutput',
-        ':ultimateloggermp',
+        ':ultimate-logger-mp',
         ':jvmloggeroutput',
         ':jvmexampleapp'
