@@ -4,7 +4,7 @@ import com.ultimatelogger.android.output.tag.TagCutter
 import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
 internal class TagLimitMultiPriorityLogger(private val multiPriorityLogger: MultiPriorityLogger,
-                                  private val tagCutter: TagCutter) :
+                                           private val tagCutter: TagCutter) :
         MultiPriorityLogger {
 
     override fun v(tag: String?, msg: String?, throwable: Throwable?) {

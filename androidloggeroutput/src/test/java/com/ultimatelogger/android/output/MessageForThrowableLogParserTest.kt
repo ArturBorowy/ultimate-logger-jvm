@@ -1,6 +1,5 @@
 package com.ultimatelogger.android.output
 
-import com.ultimatelogger.android.output.MessageForThrowableLogParser
 import org.junit.Assert
 import org.junit.Test
 

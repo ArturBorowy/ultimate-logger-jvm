@@ -1,9 +1,9 @@
 package com.ultimatelogger.multiplatform
 
-import org.junit.Assert
-import org.junit.Test
 import com.ultimatelogger.multiplatform.tag.dataprovider.TagData
 import com.ultimatelogger.multiplatform.tag.dataprovider.TagDataConverter
+import org.junit.Assert
+import org.junit.Test
 
 internal class TagDataConverterTest {
 

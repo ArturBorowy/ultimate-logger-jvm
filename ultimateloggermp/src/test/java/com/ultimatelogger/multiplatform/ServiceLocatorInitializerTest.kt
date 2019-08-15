@@ -1,12 +1,12 @@
 package com.ultimatelogger.multiplatform
 
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.di.ServiceLocatorInitializer
+import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 import org.junit.After
 import org.junit.Test
 import org.koin.core.context.stopKoin
 import org.koin.core.error.KoinAppAlreadyStartedException
-import com.ultimatelogger.multiplatform.di.ServiceLocatorInitializer
-import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
 internal class ServiceLocatorInitializerTest {
 

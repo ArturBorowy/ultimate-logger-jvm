@@ -5,6 +5,15 @@ import com.ultimatelogger.jvm.output.JvmLogInitializer
 import com.ultimatelogger.multiplatform.tag.TagSettings
 import com.ultimatelogger.multiplatform.tw
 
+var loggingObject = LoggingClass()
+set(value) {
+    JvmLog.d("SomeMsg")
+}
+get() {
+    JvmLog.d("SomeMsg")
+    return field
+}
+
 internal fun main(args: Array<String>) {
     JvmLogInitializer.init(true,
             TagSettings(shouldLogFileNameAndLineNum = true,
@@ -31,4 +40,40 @@ internal fun main(args: Array<String>) {
     JvmLog.wtf(Any())
 
     (null as String?).tw { }
+
+    loggingFunction()
+    loggingFunctionInline()
+
+    LoggingClass() loggingMethodInfix 2
+    LoggingClass().loggingMethod()
+
+    loggingObject
+    loggingObject = LoggingClass()
+    loggingObject.loggingExtension()
+    LoggingObject loggingMethodInfix 2
+    LoggingObject.loggingMethod()
 }
+
+object LoggingObject {
+
+    init {
+        JvmLog.d("SomeMsg")
+    }
+
+    infix fun loggingMethodInfix(int : Int) =JvmLog.d("SomeMsg")
+
+    fun loggingMethod() =JvmLog.d("SomeMsg")
+}
+
+class LoggingClass {
+
+    infix fun loggingMethodInfix(int : Int) =JvmLog.d("SomeMsg")
+
+     fun loggingMethod() =JvmLog.d("SomeMsg")
+}
+
+private fun LoggingClass.loggingExtension() = JvmLog.d("SomeMsg")
+
+private inline fun loggingFunctionInline()=JvmLog.d("SomeMsg")
+
+private fun loggingFunction() =JvmLog.d("SomeMsg")
