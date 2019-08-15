@@ -1,15 +1,15 @@
 package com.ultimatelogger.multiplatform.swichablemultipriorityultimatelogger
 
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.SwitchableMultiPriorityUltimateLogger
+import com.ultimatelogger.multiplatform.output.SwitchableMultiPriorityLogger
+import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProvider
+import com.ultimatelogger.multiplatform.tag.provider.throwable.ThrowableTagProvider
 import org.junit.After
 import org.junit.Before
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
-import com.ultimatelogger.multiplatform.SwitchableMultiPriorityUltimateLogger
-import com.ultimatelogger.multiplatform.output.SwitchableMultiPriorityLogger
-import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProvider
-import com.ultimatelogger.multiplatform.tag.provider.throwable.ThrowableTagProvider
 
 internal abstract class SwitchableMultiPriorityUltimateLoggerTest {
 

@@ -4,13 +4,13 @@ import com.nhaarman.mockitokotlin2.anyOrNull
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.Assert
-import org.junit.Test
-import org.mockito.Mockito
 import com.ultimatelogger.multiplatform.tag.builder.TagDataTagBuilder
 import com.ultimatelogger.multiplatform.tag.dataprovider.TagDataProvider
 import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProviderWithTagData
 import com.ultimatelogger.multiplatform.util.TestData
+import org.junit.Assert
+import org.junit.Test
+import org.mockito.Mockito
 
 internal class StringTagProviderWithTagDataTest {
 

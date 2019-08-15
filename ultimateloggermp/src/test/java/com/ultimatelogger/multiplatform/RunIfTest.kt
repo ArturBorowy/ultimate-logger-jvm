@@ -1,9 +1,9 @@
 package com.ultimatelogger.multiplatform
 
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.util.runIf
 import org.junit.Test
 import org.mockito.Mockito
-import com.ultimatelogger.multiplatform.util.runIf
 
 internal class RunIfTest {
 
