@@ -1,0 +1,3 @@
+[submodule "ultimate-logger-mp"]
+	path = ultimate-logger-mp
+	url = https://github.com/ArturBorowy/ultimate-logger-mp

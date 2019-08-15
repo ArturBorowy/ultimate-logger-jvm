@@ -6,7 +6,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
-    api project(path: ':ultimateloggermp')
+    api project(path: ':ultimate-logger-mp')
 }
 
 buildscript {
