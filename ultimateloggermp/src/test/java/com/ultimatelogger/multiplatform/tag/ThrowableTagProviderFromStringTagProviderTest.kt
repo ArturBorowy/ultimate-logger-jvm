@@ -2,10 +2,10 @@ package com.ultimatelogger.multiplatform.tag
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
-import org.junit.Assert
-import org.junit.Test
 import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProvider
 import com.ultimatelogger.multiplatform.tag.provider.throwable.ThrowableTagProviderFromStringTagProvider
+import org.junit.Assert
+import org.junit.Test
 
 internal class ThrowableTagProviderFromStringTagProviderTest {
 

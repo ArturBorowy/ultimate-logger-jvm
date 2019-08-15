@@ -1,9 +1,9 @@
 package com.ultimatelogger.multiplatform.di
 
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 import com.ultimatelogger.multiplatform.di.util.named
 import com.ultimatelogger.multiplatform.di.util.toKoinParameters
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 internal object LazyServiceLocator : KoinComponent {
 

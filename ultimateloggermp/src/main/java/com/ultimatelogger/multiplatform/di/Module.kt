@@ -1,6 +1,5 @@
 package com.ultimatelogger.multiplatform.di
 
-import org.koin.dsl.module
 import com.ultimatelogger.multiplatform.data.TagSettingsRepository
 import com.ultimatelogger.multiplatform.di.tags.LoggerTag
 import com.ultimatelogger.multiplatform.di.util.named
@@ -16,6 +15,7 @@ import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProvider
 import com.ultimatelogger.multiplatform.tag.provider.string.StringTagProviderWithTagData
 import com.ultimatelogger.multiplatform.tag.provider.throwable.ThrowableTagProvider
 import com.ultimatelogger.multiplatform.tag.provider.throwable.ThrowableTagProviderFromStringTagProvider
+import org.koin.dsl.module
 
 internal fun applicationModule(logOutput: MultiPriorityLogger) = module {
     single<TagDataTagBuilder> { TagDataTagBuilderWithDefaultSettings(get()) }

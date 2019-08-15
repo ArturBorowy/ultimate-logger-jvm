@@ -1,8 +1,8 @@
 package com.ultimatelogger.multiplatform.di
 
+import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
-import com.ultimatelogger.multiplatform.output.MultiPriorityLogger
 
 internal object ServiceLocatorInitializer {
 

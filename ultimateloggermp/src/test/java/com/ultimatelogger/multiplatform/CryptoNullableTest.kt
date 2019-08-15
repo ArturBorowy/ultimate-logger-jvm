@@ -1,15 +1,15 @@
 package com.ultimatelogger.multiplatform
 
 import com.nhaarman.mockitokotlin2.mock
+import com.ultimatelogger.multiplatform.util.CryptoNullable
 import org.junit.Assert
 import org.junit.Test
-import com.ultimatelogger.multiplatform.util.CryptoNullable
 
 class CryptoNullableTest {
 
-    private val givenThrowable : Throwable = mock()
+    private val givenThrowable: Throwable = mock()
 
-    private var cryptoNullable : Any by CryptoNullable(givenThrowable)
+    private var cryptoNullable: Any by CryptoNullable(givenThrowable)
 
     @Test(expected = Throwable::class)
     fun `getter throws givenThrowable if setter wasn't called before`() {
