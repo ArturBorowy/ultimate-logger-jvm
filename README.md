@@ -44,7 +44,7 @@ JvmLog.d("Your message to log on debug level.")
 JvmLog.e(Exception("Your exception to log on error level."))
 ```
 **Result:**
-![Basic logging result example](https://i.imgur.com/bWgqjhf.png)
+![Basic logging result example](https://i.imgur.com/XqKzrEb.png)
 
 3. Stop library:
 ```kotlin
@@ -57,7 +57,7 @@ As I have shown before: `JvmLogInitializer.init(...)` method takes TagSettings o
 
 ![TagSettings data structure](https://i.imgur.com/oARBKaw.png)
 
-If you set `shouldLogClassName` of `tagSettings` flag to `true`, you will see class name before message in every line logged. `shouldLogFileNameAndLineNum` is a cool feature too. If you set this flag to `true`, you will see in Logcat a hyperlink to the line of code, where you have used JvmLog (see in example of **Quick start quide#2**).
+If you set `shouldLogClassName` of `tagSettings` flag to `true`, you will see class name before message in every line logged.
 
 Optionally you can override default tag settings (you have set in JvmLogInitializer.init(...)) **in every specific usage of `JvmLog`**
 
@@ -88,7 +88,7 @@ JvmLog.wtf((null as String?)) // Objects of nullable types are safe to log!
 JvmLog.e() // Empty message? No problem.
 ```
 **Result:**
-![Logging Any? result](https://i.imgur.com/xpnUtFX.png)
+![Logging Any? result](https://i.imgur.com/NWytUGK.png)
 
 ## License
 
