@@ -44,6 +44,7 @@ JvmLog.d("Your message to log on debug level.")
 JvmLog.e(Exception("Your exception to log on error level."))
 ```
 **Result:**
+
 ![Basic logging result example](https://i.imgur.com/XqKzrEb.png)
 
 3. Stop library:
@@ -70,7 +71,7 @@ Above usage will log line number and file name **even if default global settings
 
 No more boilerplate like this:
 ```kotlin
-myObject?.let {it.doSomething()} ?: Log.w(TAG, "object is null")
+myObject?.let {it.doSomething()} ?: OldLogger.w(TAG, "object is null")
 
 // Now you can just write
 myObject.tw { it.doSomething() }
@@ -88,6 +89,7 @@ JvmLog.wtf((null as String?)) // Objects of nullable types are safe to log!
 JvmLog.e() // Empty message? No problem.
 ```
 **Result:**
+
 ![Logging Any? result](https://i.imgur.com/NWytUGK.png)
 
 ## License
