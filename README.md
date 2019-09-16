@@ -13,7 +13,6 @@ This is **JVM** version of UltimateLogger. **Android version**, which is better 
 ```groovy
 dependencies {
     implementation 'com.github.ArturBorowy:ultimate-logger-jvm:0.1.0'
-    implementation 'com.github.ArturBorowy:ultimate-logger-mp:0.1.0'
 }
 ```
 
