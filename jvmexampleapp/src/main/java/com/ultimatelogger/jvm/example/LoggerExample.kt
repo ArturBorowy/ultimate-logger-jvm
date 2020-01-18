@@ -16,9 +16,12 @@ get() {
 
 internal fun main(args: Array<String>) {
     JvmLogInitializer.init(true,
-            TagSettings(shouldLogFileNameAndLineNum = true,
+            TagSettings(shouldLogThreadName = true,
+                    shouldLogFileNameAndLineNum = true,
                     shouldLogClassName = true,
                     shouldLogMethodName = true))
+
+    Thread({ JvmLog.v("JvmLog.v")}, "THREAD NAMED").start()
 
     JvmLog.v("JvmLog.v")
     JvmLog.v(Exception())
