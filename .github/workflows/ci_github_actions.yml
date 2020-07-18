@@ -1,0 +1,13 @@
+name: Clean+Build+Test
+
+on: [pull_request]
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: git clone https://arturborowy@github.com/arturborowy/ultimate-logger-mp.git
+      - uses: MrRamych/gradle-actions/openjdk-8@3.1
+        with:
+          args: clean build test
